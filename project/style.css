@@ -56,7 +56,32 @@ body {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    padding-top: 5%;
+    padding-top: 2%;
     background-color: white;
     border: 5px solid black;
+}
+
+#button {
+
+    margin-left: auto;
+    
+}
+
+#button img {
+    width: 70%;
+}
+
+
+
+@keyframes buttonForm {
+    from {
+        width: 40%;
+        opacity: 0.5;
+    }
+
+    to {
+        width: 20%;
+        opacity: 1;
+        font-size: larger;
+    }
 }
