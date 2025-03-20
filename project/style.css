@@ -32,6 +32,7 @@ body {
 
     100% {
         transform: rotate(6.856deg);
+        
     }
     
 }
@@ -71,7 +72,36 @@ body {
     width: 70%;
 }
 
+#createPlayer {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5%;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.boxCreate {
+    gap: 2%;
+    
+    display: grid;
+    grid-template-columns: auto;
+} 
+
+.boxCreate label {
+    width: 45%;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: x-large;
+    background-color: white;
+}
+
+.boxCreate input {
+    background-color: #648DE5;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-radius: 10%;
+}
 
 @keyframes buttonForm {
     from {
@@ -83,5 +113,6 @@ body {
         width: 20%;
         opacity: 1;
         font-size: larger;
+        background-color: #648DE5;
     }
 }

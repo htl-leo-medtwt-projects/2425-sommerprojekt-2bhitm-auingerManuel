@@ -2,15 +2,28 @@ document.getElementById('box').innerHTML = ` Auf dieser Website Spielen 2 Spiele
 
 
 function getStartButton() {
-
     document.getElementById('box').style.animation = 'buttonForm 1s';
-    setTimeout(document.getElementById('box').style.width = '20%', 1000)
+    setTimeout(styling(), 1000)
     document.getElementById('box').style.fontSize = 'larger'
-    document.getElementById('box').innerHTML = `<div onclick = "getCharacter>"> Start Game </div>`
-    
+    document.getElementById('box').innerHTML = `<div onclick = "getCharacter()"> Start Game </div>`
 }
 
+function styling() {
+document.getElementById('box').style.width = '20%'
+document.getElementById('box').style.backgroundColor = '#648DE5';
+document.getElementById('box').style.fontSize = 'larger';
+
+}
 
 function getCharacter() {
-    console.log('test')
+    document.getElementById('box').style.display = 'none';
+    document.getElementById('headline').style.display = 'none'
+    document.getElementById('createPlayer').innerHTML = ` <div id="playerOne" class="boxCreate">
+            <label for="pl1">Spieler 1:</label>
+            <input type="text" name="pl1" id="pl1">
+        </div>
+        <div id="playerTwo" class="boxCreate">
+            <label for="pl1">Spieler 2:</label>
+            <input type="text" name="pl1" id="pl1">
+        </div>`
 }
