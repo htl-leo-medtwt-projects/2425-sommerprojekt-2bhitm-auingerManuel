@@ -1,3 +1,8 @@
+:root {
+    --fontColor: #648DE5;
+    --backgroundColor: #DDCD8B;
+}
+
 body {
     background-image: url(./img/background.jpg);
     background-size: cover;
@@ -38,10 +43,10 @@ body {
 }
 
 #headline h1 {
-    color: #648DE5;
+    color: var(--fontColor);
     text-align: center;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #648DE5;
+    -webkit-text-stroke-color: var(--fontColor);
     font-family: jsMath-cmbx10;
     font-size: 12vw;
     font-style: normal;
@@ -97,10 +102,11 @@ body {
 }
 
 .boxCreate input {
-    background-color: #648DE5;
+    background-color: white;
     padding-top: 2%;
     padding-bottom: 2%;
     border-radius: 10%;
+    color: var(--fontColor);
 }
 
 @keyframes buttonForm {
@@ -113,6 +119,7 @@ body {
         width: 20%;
         opacity: 1;
         font-size: larger;
-        background-color: #648DE5;
+        background-color: var(--backgroundColor);
+        color: var(--fontColor);
     }
 }
