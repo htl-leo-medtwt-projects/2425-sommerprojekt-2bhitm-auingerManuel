@@ -1,13 +1,16 @@
 :root {
-    --fontColor: #648DE5;
-    --backgroundColor: #DDCD8B;
+    --fontColor: #7aaaab;
+    --backgroundColorBox: #e5e2d3;
+    --backgroundColor: #051BA9;
+    --right: #346224;
+    --false: #A62929;
+    --border: #FFFFFF;
 }
 
 body {
     background-image: url(./img/background.jpg);
     background-size: cover;
     overflow-y: hidden;
-
 }
 
 #headline {
@@ -15,7 +18,6 @@ body {
     margin-right: auto;
     display: flex;
     width: 40vw;
-
     height: auto;
     transform: rotate(6.856deg);
     flex-direction: column;
@@ -39,7 +41,6 @@ body {
         transform: rotate(6.856deg);
         
     }
-    
 }
 
 #headline h1 {
@@ -63,14 +64,16 @@ body {
     margin-right: auto;
     text-align: center;
     padding-top: 2%;
-    background-color: white;
-    border: 5px solid black;
+    background-color: var(--backgroundColorBox);
+    border: 5px solid var(--border);
+    border-radius: 3%;
+    color: var(--fontColor);
+    font-size: larger;
 }
 
 #button {
-
+    margin-right: auto;
     margin-left: auto;
-    
 }
 
 #button img {
@@ -79,16 +82,25 @@ body {
 
 #createPlayer {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto;
     gap: 5%;
-    width: 80%;
+    width: 40%;
     margin-left: auto;
     margin-right: auto;
 }
 
+#submit {
+    width: 20%;
+    background-color: var(--backgroundColorBox);
+    color: var(--fontColor);
+    margin-left: auto;
+    font-size: x-large;
+    text-align: center;
+}
+
 .boxCreate {
-    gap: 2%;
-    
+    background-color: var(--backgroundColorBox);
+    gap: 5%;
     display: grid;
     grid-template-columns: auto;
 } 
@@ -98,14 +110,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     font-size: x-large;
-    background-color: white;
+    color: var(--fontColor);
 }
 
 .boxCreate input {
-    background-color: white;
+    background-color: var(--backgroundColorBox);
+    border: 2px solid var(--border);
     padding-top: 2%;
     padding-bottom: 2%;
-    border-radius: 10%;
     color: var(--fontColor);
 }
 
@@ -118,8 +130,6 @@ body {
     to {
         width: 20%;
         opacity: 1;
-        font-size: larger;
-        background-color: var(--backgroundColor);
-        color: var(--fontColor);
+        background-color: var(--backgroundColorBox);
     }
 }
