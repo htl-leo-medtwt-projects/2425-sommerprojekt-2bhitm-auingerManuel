@@ -25,16 +25,16 @@ document.getElementById('box').style.fontSize = 'larger';
 }
 
 function getCharacter() {
-    document.getElementById('headline').style.display = 'none'
+   
     document.getElementById('box').style.display = 'none';
-    // document.getElementById('headline').style.display = 'none'
+
     document.getElementById('createPlayer').innerHTML = `
-        <div> 
-        <div id="playerOne" class="boxCreate">
+        <div id = "create-grid">
+        <div id="CreateplayerOne" class="boxCreate">
             <label for="pl1">Spieler 1:</label>
             <input type="text" name="pl1" id="pl1">
         </div>
-        <div id="playerTwo" class="boxCreate">
+        <div id="CreateplayerTwo" class="boxCreate">
             <label for="pl2">Spieler 2:</label>
             <input type="text" name="pl2" id="pl2">
         </div>
@@ -49,9 +49,17 @@ function homePage() {
         
     }
     document.getElementById('createPlayer').innerHTML = '';
+
+
+
+    
+
 }
 
 // HomePage
+
+
+
 
 
 

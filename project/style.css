@@ -84,37 +84,57 @@ body {
     display: grid;
     grid-template-columns: auto;
     gap: 5%;
-    width: 40%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #submit {
+    border-radius: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: block;
     width: 20%;
     background-color: var(--backgroundColorBox);
     color: var(--fontColor);
     margin-left: auto;
+    margin-right: auto;
     font-size: x-large;
     text-align: center;
 }
 
 .boxCreate {
-    background-color: var(--backgroundColorBox);
+    
     gap: 5%;
     display: grid;
     grid-template-columns: auto;
 } 
 
+#create-grid {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    text-align: center;
+    gap: 5%;
+}
+
+
+
 .boxCreate label {
-    width: 45%;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: var(--backgroundColorBox);
+    width: 40%;
+    text-align: center;
     font-size: x-large;
     color: var(--fontColor);
 }
 
 .boxCreate input {
-    background-color: var(--backgroundColorBox);
+    
     border: 2px solid var(--border);
     padding-top: 2%;
     padding-bottom: 2%;
@@ -133,3 +153,17 @@ body {
         background-color: var(--backgroundColorBox);
     }
 }
+
+/* HomePage */
+
+#homePage {
+    width: 100%;
+    display: none;
+    grid-template-columns: 30% auto 30%;
+    gap: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    background-color: var(--backgroundColorBox);
+}
+
