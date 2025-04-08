@@ -227,6 +227,10 @@ body {
     border: 0em solid var(--border);
 }
 
+.CountGame a {
+    text-decoration: none;
+}
+
 .CountGame:hover {
     border: 1em solid var(--border);
 }
@@ -239,4 +243,33 @@ body {
     position: relative;
     text-align: center;
     color: #FFFFFF;
+}
+
+.GeometryGame {
+    width: 10vw;
+    height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    background-image: url(./img/GeomatryGame.png);
+    background-size: contain;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all linear 1s;
+    border: 0em solid var(--border);
+}
+
+
+.GeometryGame h2 {
+    top: 45%;
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+    
+}
+
+.GeometryGame a {
+    text-decoration: none;
 }

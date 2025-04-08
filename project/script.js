@@ -66,7 +66,10 @@ function homePage() {
     console.log(players)
     document.getElementById('createPlayer').innerHTML = '';
     document.getElementById('homePage').style.display = 'grid';
-    document.getElementById('GamesNav-grid').innerHTML = '<div class = "CountGame"> <h2> CountGame </h2> </div>'
+    document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games, CountGame"><a href="./Unterseiten/CountGame/CountGame.html"> <h2> CountGame </h2>  </a></div>'
+    document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games, GeometryGame"><a href="./Unterseiten/GeometryGame/GeometryGame.html"> <h2> GeometryGame </h2>  </a></div>'
+    document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games, PrimeHunt"><a href="./Unterseiten/PrimeHunt/PrimeHunt.html"> <h2> PrimeHunt </h2>  </a></div>'
+
     update();
 }
 
