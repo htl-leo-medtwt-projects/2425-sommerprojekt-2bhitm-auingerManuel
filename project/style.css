@@ -106,7 +106,6 @@ body {
 }
 
 .boxCreate {
-    
     gap: 5%;
     display: grid;
     grid-template-columns: auto;
@@ -175,7 +174,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-top: 5%;
-   
 }
 
 #GamesNav-grid {
@@ -213,7 +211,7 @@ body {
     font-size: 3vw;
 }
 
-.CountGame {
+#CountGame {
     width: 10vw;
     height: auto;
     flex-shrink: 0;
@@ -227,17 +225,11 @@ body {
     border: 0em solid var(--border);
 }
 
-.CountGame a {
+#CountGame a {
     text-decoration: none;
 }
 
-.CountGame:hover {
-    border: 1em solid var(--border);
-}
-
-
-
-.CountGame h2 {
+#CountGame h2 {
     
     top: 45%;
     position: relative;
@@ -245,7 +237,16 @@ body {
     color: #FFFFFF;
 }
 
-.GeometryGame {
+.Games {
+    transition: all linear 1s;
+    border: 0em solid black;
+}
+
+.Games:hover {
+    border: 1em solid var(--border);
+}
+
+#GeometryGame {
     width: 10vw;
     height: auto;
     flex-shrink: 0;
@@ -257,12 +258,12 @@ body {
     margin-right: auto;
     background-repeat: no-repeat;
     background-position: center;
-    transition: all linear 1s;
+   
     border: 0em solid var(--border);
 }
 
 
-.GeometryGame h2 {
+#GeometryGame h2 {
     top: 45%;
     position: relative;
     text-align: center;
@@ -270,6 +271,64 @@ body {
     
 }
 
-.GeometryGame a {
+#GeometryGame a {
     text-decoration: none;
+}
+
+#PrimeHunt {
+    width: 10vw;
+    height: auto;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    background-image: url(./img/backGroundPrimeHunt.png);
+    background-size: contain;
+    background-position: center;
+    margin-left: auto;
+    margin-right: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all linear 1s;
+    border: 0em solid var(--border);
+}
+
+#PrimeHunt h2 {
+    top: 45%;
+    position: relative;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#PrimeHunt a {
+    text-decoration: none;
+}
+
+.win ol {
+    
+    text-align: center;
+}
+
+.win li::marker {
+    margin-left: auto;
+}
+
+.win ol {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+
+#leiste {
+    margin-top: 8%;
+    display: none;
+    flex-direction: row;
+    background-color: var(--backgroundColor);
+    border: black solid 2px;
+    width: 100%;
+    height: 8vh;
+}
+
+.infoText  {
+    color: var(--fontColor);
+    text-decoration: underline;
+    text-decoration-color: var(--border);
 }
