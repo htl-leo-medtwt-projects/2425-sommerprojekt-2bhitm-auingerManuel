@@ -2,6 +2,9 @@
 
 document.getElementById('box').innerHTML = ` Auf dieser Website Spielen 2 Spieler gegeneinander Mathe Spiele, um sich zu messen. <br> Viel Spaß <div id = "button" onclick = "getStartButton()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
 numb = 0;
+
+
+
 let players = [
      {
         points: 0,
@@ -13,6 +16,11 @@ let players = [
     }
 ]
 
+localStorage['playerOne'];
+localStorage['playerTwo'];
+
+localStorage['victorys'];
+
 
 let victorys = [
     [
@@ -22,6 +30,8 @@ let victorys = [
     ],
     []
 ]
+
+localStorage['victorys'] = victorys;
 
 
 document.getElementById('box').addEventListener("keyup",(e) => {
