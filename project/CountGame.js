@@ -73,37 +73,67 @@ function Main() {
 }
 
 
+
+
+
+
 function antworten(answer) {
 
-    let rnd = Math.floor(Math.random() * 3);
+    let rnd =  Math.ceil(Math.random() * 3);
+    
     let brick = "";
+    
+    let nr1 = 0;
+    let nr2 = 0;
 
+    do {
+        nr1 = getrndNr(answer);
+    }while (nr1 == answer);
 
+    
+    do {
+        nr2 = getrndNr(answer);
+    }while (nr2 == nr1);
+
+    console.log(nr1 ,nr2)
     switch(rnd) {
         case 1:
-            brick = `<section>
-                    <option id="answerOne" value="${answer}">${answer}</option>
-                    <option id="answerTwo" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                    <option id="answerThree" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                    </section>`
+            brick = `<div id = "anwnsers">
+                   <div class = "options" onclick = "checkAnwser(${answer},${answer} )"> ${answer} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})">${nr1}</div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})"> ${nr2} </div>
+                </div>`
             break;
         
             case 2:
-               brick = `<section>
-                    <option id="answerOne" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                    <option id="answerTwo" value="${answer}">${answer}</option>
-                    <option id="answerThree" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                    </section>`
+               brick = `<div id = "anwnsers">
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})"> ${nr1} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${answer})"> ${answer} </div>
+                  <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})">${nr2} </div>
+                </div>`
             break;
             case 3:
-                brick = `<section>
-                <option id="answerOne" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                <option id="answerTwo" value="${getrndNr(answer)}">${getrndNr(answer)}</option>
-                <option id="answerThree" value="${answer}">${answer}</option>
-                </section>`
+                brick = `<div id = "anwnsers">
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})"> ${nr1} </div>
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})"> ${nr2} </div>
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${answer})"> ${answer} </div>
+                </div>`
                 
     }   
     
     
     document.getElementById('eingabe').innerHTML = brick;
+}
+
+
+function checkAnwser(answer, userAnswer) {
+    
+    
+    console.log(Number.parseInt(userAnswer), Number.parseInt(answer))
+    if(Number.parseInt(answer) == userAnswer) {
+        console.log("richtig")
+        Main();
+    } else {
+        console.log('falsch')
+    }
 }
