@@ -1,6 +1,8 @@
-startGame()
+beforeGame()
 
 let ob = 10; // Obergrenze
+
+let points = 0;
 
 
 function getrndNr(ob) {
@@ -35,8 +37,10 @@ function print(nr1, operator, nr2) {
 
 
 
-function startGame() {
-    document.getElementById('startGame').innerHTML = `<div onclick = "Main()"> Start Game </div>`
+function beforeGame() {
+    document.getElementById('rechnung').innerHTML = "";
+    document.getElementById('eingabe').innerHTML = "";
+    document.getElementById('startGame').innerHTML = `<div onclick = "Main()"> <h1> Start Game </h1> </div>`
 
 }
 
@@ -53,6 +57,13 @@ function getAnswer(nr1, operator, nr2) {
           answer =  nr1 * nr2;
             break;
         case "/":
+
+            if(n1 < n2) {
+                let temp = n1;
+                n1 = n2;
+                n2 = temp;
+            }
+
           answer =  nr1 / nr2;
           answer = answer.toFixed(2)
           break;
@@ -62,22 +73,37 @@ function getAnswer(nr1, operator, nr2) {
 }
 
 
+function startGame() {
+   
+    Main();
+}
+
+
 function Main() {
+   let timerValue = 30;
+    const intervalTimer = setInterval(() => {
+        console.log("Counter " + timerValue)
+        
+        if(timerValue < 0) {
+            beforeGame();
+            console.log("Countdown finished");
+            clearInterval(intervalTimer);
+        }
+        timerValue--
+       }, 1000)
+
+   
     let nr1 = getrndNr(ob);
     let operator = rndOperator();
     let nr2 = getrndNr(ob);
     let answer = getAnswer(nr1, operator, nr2)
     print(nr1, operator, nr2);
     
-    antworten(answer);
+    antworten(answer, intervalTimer);
+    
 }
 
-
-
-
-
-
-function antworten(answer) {
+function antworten(answer, intervalTimer) {
 
     let rnd =  Math.ceil(Math.random() * 3);
     
@@ -99,24 +125,24 @@ function antworten(answer) {
     switch(rnd) {
         case 1:
             brick = `<div id = "anwnsers">
-                   <div class = "options" onclick = "checkAnwser(${answer},${answer} )"> ${answer} </div>
-                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})">${nr1}</div>
-                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})"> ${nr2} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer},${answer}, ${intervalTimer} )"> ${answer} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1}, ${intervalTimer})">${nr1}</div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr2}, ${intervalTimer})"> ${nr2} </div>
                 </div>`
             break;
         
             case 2:
                brick = `<div id = "anwnsers">
-                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})"> ${nr1} </div>
-                   <div class = "options" onclick = "checkAnwser(${answer}, ${answer})"> ${answer} </div>
-                  <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})">${nr2} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${nr1}, ${intervalTimer})"> ${nr1} </div>
+                   <div class = "options" onclick = "checkAnwser(${answer}, ${answer}, ${intervalTimer})"> ${answer} </div>
+                  <div class = "options" onclick = "checkAnwser(${answer}, ${nr2}, ${intervalTimer})">${nr2} </div>
                 </div>`
             break;
             case 3:
                 brick = `<div id = "anwnsers">
-                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr1})"> ${nr1} </div>
-                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr2})"> ${nr2} </div>
-                    <div class = "options" onclick = "checkAnwser(${answer}, ${answer})"> ${answer} </div>
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr1}, ${intervalTimer})"> ${nr1} </div>
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${nr2}, ${intervalTimer})"> ${nr2} </div>
+                    <div class = "options" onclick = "checkAnwser(${answer}, ${answer}, ${intervalTimer})"> ${answer} </div>
                 </div>`
                 
     }   
@@ -126,12 +152,13 @@ function antworten(answer) {
 }
 
 
-function checkAnwser(answer, userAnswer) {
+function checkAnwser(answer, userAnswer, intervalTimer) {
     
     
     console.log(Number.parseInt(userAnswer), Number.parseInt(answer))
     if(Number.parseInt(answer) == userAnswer) {
         console.log("richtig")
+        clearInterval(intervalTimer);
         Main();
     } else {
         console.log('falsch')
