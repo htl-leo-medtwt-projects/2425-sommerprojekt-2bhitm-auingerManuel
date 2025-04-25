@@ -16,8 +16,8 @@ let players = [
     }
 ]
 
-localStorage['playerOne'];
-localStorage['playerTwo'];
+
+
 
 localStorage['victorys'];
 
@@ -87,12 +87,13 @@ function getCharacter() {
 // HomePage
 
 function homePage() {
-    document.getElementById('leiste').style.display = 'flex';
+    document.getElementById('leiste').style.display = 'grid';
     document.getElementById('headline').style.display = 'none';
     for(let i = 0; i < 2; i++) {
         players[i].name = document.getElementById(`pl${i + 1}`).value;
         
     }
+    localStorage['players'] = JSON.stringify(players);
     console.log(players)
     document.getElementById('createPlayer').innerHTML = '';
     document.getElementById('homePage').style.display = 'grid';
