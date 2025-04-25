@@ -44,7 +44,11 @@ function print(nr1, operator, nr2) {
 
 
 function beforeGame() {
+    
+    if(currentPlayer < 2) {
     document.getElementById('currentPLayer').innerHTML = `<h3> ${players[currentPlayer].name} is current Player </h3>`
+    }
+    
     console.log("test")
     document.getElementById('countgame-Main').style.display = "none";
     document.getElementById('startGame').innerHTML = `<div onclick = "Main()"> <h1> Start Game </h1> </div>`
@@ -57,6 +61,7 @@ function beforeGame() {
 
 function endGame() {
     let winner = "";
+
     document.getElementById('countgame-Main').style.display = "none";
     if(players[pl1].points != players[pl2].points) {
 
@@ -74,11 +79,6 @@ function endGame() {
         document.getElementById('winner').innerHTML = "<p> Draw </p>"
     }   
     document.getElementById('end').style.display = "grid";
-
-    
-    
-
-
 }
 
 function getAnswer(nr1, operator, nr2) {
@@ -95,11 +95,7 @@ function getAnswer(nr1, operator, nr2) {
             break;
         case "/":
 
-            if(nr1 < nr2) {
-                let temp = n1;
-                nr1 = nr2;
-                nr2 = temp;
-            }
+            
 
           answer =  nr1 / nr2;
           answer = answer.toFixed(2)
@@ -118,13 +114,10 @@ function startGame() {
 let timer = false;
 function Main() {
 
-    if(currentPlayer == 1) {
-        players[1].points = 1;
-        endGame()
-    }
+   
     
     document.getElementById('countgame-Main').style.display = "grid";
-    let timerValue = 30;
+    let timerValue = 10;
    
     document.getElementById('timer').innerHTML = `<p> Time: ${timerValue} </p>`;
    
@@ -170,7 +163,7 @@ function antworten(answer, intervalTimer) {
     
     do {
         nr2 = getrndNr(answer + 10);
-    }while (nr2 == nr1);
+    }while (nr2 == nr1 && nr2 == answer);
     
 
     
@@ -246,7 +239,7 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
 
     
     console.log(Number.parseInt(userAnswer), Number.parseInt(answer))
-    if(Number.parseInt(answer) == userAnswer) {
+    if(Number.parseInt(answer) == Number.parseInt(userAnswer)) {
         console.log("richtig")
         countPoints++;
         players[currentPlayer].points = countPoints;
@@ -258,6 +251,11 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
         
     
         currentPlayer++;
-        beforeGame();
+        if(currentPlayer <= 1) {
+            beforeGame();
+        } else {
+            endGame();
+        }
+        
     }
 }
