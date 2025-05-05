@@ -74,7 +74,7 @@ function endGame() {
         }
         document.getElementById('points').innerHTML = `<p> ${players[pl1].name} - ${players[pl1].points} : ${players[pl2].points} - ${players[pl2].name} </p>`
     document.getElementById('winner').innerHTML = `<p> ${winner} hat gewonnen </p>`;
-   
+        
     } else {    
         document.getElementById('winner').innerHTML = "<p> Draw </p>"
     }   

@@ -17,7 +17,7 @@ let players = [
 ]
 
 
-
+localStorage['players'] = JSON.stringify(players);
 
 localStorage['victorys'];
 
@@ -87,6 +87,9 @@ function getCharacter() {
 // HomePage
 
 function homePage() {
+    
+    let players = JSON.parse(localStorage['players'] ?? '[]');
+
     document.getElementById('leiste').style.display = 'grid';
     document.getElementById('headline').style.display = 'none';
     for(let i = 0; i < 2; i++) {
