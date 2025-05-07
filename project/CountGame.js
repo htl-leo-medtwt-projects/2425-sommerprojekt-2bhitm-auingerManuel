@@ -7,10 +7,21 @@ let points = 0;
 
 let currentPlayer = 0;
 
+let countPoints = [
+    {
+        currentPoints:  0
+    }, 
+    {
+        currentPoints: 0
+    }
+]
+
+
+
 let players = JSON.parse(localStorage['players'] ?? []);
 console.log(players) 
 beforeGame()
-let countPoints = 0;
+
 function getrndNr(ob) {
     let rnd = Math.ceil(Math.random() * ob) + 1;
     return rnd;
@@ -62,23 +73,28 @@ function beforeGame() {
 function endGame() {
     let winner = "";
 
-    document.getElementById('countgame-Main').style.display = "none";
-    if(players[pl1].points != players[pl2].points) {
 
-        if(players[pl1].points > players[pl2].points) {
+
+
+    document.getElementById('countgame-Main').style.display = "none";
+    if(countPoints[pl1].currentPoints != countPoints[pl2].currentPoints) {
+
+        if(countPoints[pl1].currentPoints > countPoints[pl2].currentPoints) {
             localStorage['victorys'][pl1] += JSON.stringify('{"name": "Countgame"}')
             winner = players[pl1].name;
         } else {
             localStorage['victorys'][pl2] += JSON.stringify('{"name": "Countgame"}')
             winner = players[pl2].name;
         }
-        document.getElementById('points').innerHTML = `<p> ${players[pl1].name} - ${players[pl1].points} : ${players[pl2].points} - ${players[pl2].name} </p>`
+        document.getElementById('points').innerHTML = `<p> ${players[pl1].name} - ${countPoints[pl1].currentPoints} : ${countPoints[pl2].currentPoints} - ${players[pl2].name} </p>`
     document.getElementById('winner').innerHTML = `<p> ${winner} hat gewonnen </p>`;
         
     } else {    
         document.getElementById('winner').innerHTML = "<p> Draw </p>"
     }   
     document.getElementById('end').style.display = "grid";
+
+    localStorage['players'] = JSON.stringify(players);
 }
 
 function getAnswer(nr1, operator, nr2) {
@@ -241,15 +257,16 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
     console.log(Number.parseInt(userAnswer), Number.parseInt(answer))
     if(Number.parseInt(answer) == Number.parseInt(userAnswer)) {
         console.log("richtig")
-        countPoints++;
-        players[currentPlayer].points = countPoints;
+        countPoints[currentPlayer].currentPoints++;
+        
         clearInterval(intervalTimer);
         Main();
     } else {
         clearInterval(intervalTimer);
         console.log('falsch')
         
-    
+        players[currentPlayer].points += countPoints[currentPlayer].currentPoints;
+        
         currentPlayer++;
         if(currentPlayer <= 1) {
             beforeGame();

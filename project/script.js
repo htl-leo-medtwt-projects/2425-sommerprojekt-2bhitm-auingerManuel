@@ -4,6 +4,30 @@ document.getElementById('box').innerHTML = ` Auf dieser Website Spielen 2 Spiele
 numb = 0;
 
 
+let calciQuotes = [
+  { sentence: "Hey Users my name is Calci i am youre Guide for this Math Game Website." },
+  { sentence: "You can play agianst each other in three Math Games!" },
+  { sentence: "PLease fill in youre Name Player One" },
+  { sentence: "Good Job, now you Player Two" },
+  { sentence: "Now Press Submit to enter the Menu, we will meet there" },
+  { sentence: "Hey Overhere!" },
+  { sentence: "This is the Homepage. we have left and right the View of youre Stats." },
+  { sentence: "Youre Point Counts are youre Total Points you gather from the three Games in the Middle" },
+  { sentence: "We have CountGame, Geomatry Game and Prime Hunt " },
+  { sentence: "On the bottom are the Contacs of the Creator if you need help" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" },
+  { sentence: "Fill Text" }
+];
+
+
 
 let players = [
      {
@@ -31,7 +55,7 @@ let victorys = [
     []
 ]
 
-localStorage['victorys'] = victorys;
+localStorage['victorys'] = JSON.stringify(victorys);
 
 
 document.getElementById('box').addEventListener("keyup",(e) => {
@@ -74,20 +98,31 @@ function getCharacter() {
         <div id="CreateplayerOne" class="boxCreate">
             <label for="pl1">Spieler 1:</label>
             <input type="text" name="pl1" id="pl1">
+            <div class = "submitName" onclick = "getname(0)"> Submit </div>
         </div>
         <div id="CreateplayerTwo" class="boxCreate">
             <label for="pl2">Spieler 2:</label>
             <input type="text" name="pl2" id="pl2">
+             <div class = "submitName" onclick = "getname(1)"> Submit</div>
         </div>
         </div>
-        <div id = "submit" onclick = "homePage()"> Submit </div>
+        <div id = "submit">  <a href="./homepage.html">Submit</a> </div>
         `
+}
+
+function getname(player) {
+    let players = JSON.parse(localStorage['players'] || '[]');
+
+    players[player].name = document.getElementById(`pl${player + 1}`).value;
+
+
+    localStorage['players'] = JSON.stringify(players);
 }
 
 // HomePage
 
 function homePage() {
-    
+    window.location.replace("./homepage.html");
     let players = JSON.parse(localStorage['players'] ?? '[]');
 
     document.getElementById('leiste').style.display = 'grid';

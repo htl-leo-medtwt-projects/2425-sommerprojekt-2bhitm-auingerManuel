@@ -238,6 +238,8 @@ body {
     color: #FFFFFF;
 }
 
+
+
 .Games {
     transition: all linear 1s;
     border: 0em solid black;
@@ -340,4 +342,10 @@ body {
     color: var(--fontColor);
     text-decoration: underline;
     text-decoration-color: var(--border);
+}
+
+#calci {
+    width: 20em;
+    height: 20em;
+    background-color: white;
 }
