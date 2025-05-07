@@ -13,6 +13,7 @@ body {
     background-size: cover;
     overflow-y: hidden;
     overflow-x: hidden;
+    font-family: jsMath-cmbx10;
 }
 
 #headline {
@@ -51,7 +52,7 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--fontColor);
     font-family: jsMath-cmbx10;
-    font-size: 12vw;
+    font-size: 8vw;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
@@ -61,8 +62,8 @@ body {
 #box {
     display: grid;
     grid-template-columns: auto;
-    width: 40%;
-    margin-left: auto;
+    width: 20%;
+    margin-left: 20%;
     margin-right: auto;
     text-align: center;
     padding-top: 2%;
@@ -71,6 +72,11 @@ body {
     border-radius: 3%;
     color: var(--fontColor);
     font-size: larger;
+}
+
+#box a {
+    text-decoration: none;
+    
 }
 
 #button {
@@ -144,12 +150,12 @@ body {
 
 @keyframes buttonForm {
     from {
-        width: 40%;
+        width: 20%;
         opacity: 0.5;
     }
 
     to {
-        width: 20%;
+        width: 15%;
         opacity: 1;
         background-color: var(--backgroundColorBox);
     }
@@ -164,10 +170,67 @@ body {
     background-color: rgba(0, 0, 0, 0.495);
 }
 
-/* HomePage */
 
+#createPlayer {
+    display: none;
+    grid-template-columns: 2fr 1fr; /* Input takes 2/3, button takes 1/3 */
+    gap: 1rem;
+    width: 80%;
+    max-width: 500px;
+    margin: 2rem auto;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9f9;
+  }
+  
+  #createPlayer input {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+  }
+  
+  #playerSubmit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fontColor);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #playerSubmit:hover {
+    background-color: #45a049;
+  }
+  
+  #playerSubmit p {
+    margin: 0;
+    font-weight: bold;
+  }
+  
+
+/* HomePage */
+#calciChats {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    margin: 1rem auto;
+    margin-left: 50%;
+    padding: 1rem 1.5rem;
+    background-color: var(--backgroundColorBox);
+    border-left: 6px solid var(--border);
+    border-radius: 12px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: #333;
+    
+}
 #homePage {
-    width: 100%;
+    width: 80%;
     display: none;
     grid-template-columns: 30% auto 30%;
     gap: 5%;
@@ -321,7 +384,7 @@ body {
 
 
 #leiste {
-    margin-top: 8%;
+    
     display: none;
     gap: 5%;
     grid-template-columns: 10% 10% 10% 3% 3%;
@@ -345,7 +408,17 @@ body {
 }
 
 #calci {
-    width: 20em;
-    height: 20em;
+    position: fixed;
+    bottom: 0;
     background-color: white;
+    width: 20%; /* Takes up 30% of the page width */
+    
+    background-color: transparent;
+    margin: 0 auto; /* Center it horizontally */
+    padding: 0;
+}
+
+#calci img {
+    width: 100%;
+    height: auto;
 }

@@ -16,9 +16,9 @@ let countPoints = [
     }
 ]
 
+let calci = JSON.parse(localStorage['calci'] || '[]' )
 
-
-let players = JSON.parse(localStorage['players'] ?? []);
+let players = JSON.parse(localStorage['players'] || '[]');
 console.log(players) 
 beforeGame()
 
@@ -45,23 +45,33 @@ function rndOperator() {
     }
 }
 
-
+console.log(calci);
 function print(nr1, operator, nr2) {
     
     document.getElementById('rechnung').innerHTML = `<p> ${nr1} ${operator} ${nr2} </p>`;
 }
+chat()
 
+function chat() {
+    document.getElementById('chat').style.display = "brick";
+    document.getElementById('chat').innerHTML = `<p> ${calci[13].sentence} </p> <div onclick = "closeChat()">  <img src="../../img/icons8-close-50.png" alt=""> </div>`
+}
+
+
+function closeChat() {
+    document.getElementById('chat').style.display = "none";
+}
 
 
 
 function beforeGame() {
-    
+    document.getElementById('countgame').style.display = "none";
     if(currentPlayer < 2) {
     document.getElementById('currentPLayer').innerHTML = `<h3> ${players[currentPlayer].name} is current Player </h3>`
     }
     
     console.log("test")
-    document.getElementById('countgame-Main').style.display = "none";
+    
     document.getElementById('startGame').innerHTML = `<div onclick = "Main()"> <h1> Start Game </h1> </div>`
 
     if(currentPlayer == 2) {
@@ -72,11 +82,7 @@ function beforeGame() {
 
 function endGame() {
     let winner = "";
-
-
-
-
-    document.getElementById('countgame-Main').style.display = "none";
+    document.getElementById('calci').style.display = "none"
     if(countPoints[pl1].currentPoints != countPoints[pl2].currentPoints) {
 
         if(countPoints[pl1].currentPoints > countPoints[pl2].currentPoints) {
@@ -122,25 +128,22 @@ function getAnswer(nr1, operator, nr2) {
 }
 
 
-function startGame() {
-   
-    Main();
-}
+
 
 let timer = false;
 function Main() {
 
    
-    
-    document.getElementById('countgame-Main').style.display = "grid";
+    document.getElementById('countgame').style.display = "grid";
+   
     let timerValue = 10;
    
-    document.getElementById('timer').innerHTML = `<p> Time: ${timerValue} </p>`;
+    document.getElementById('timer').innerHTML = `<div> <p>Time:${timerValue} </p>`;
    
     const intervalTimer = setInterval(() => {
         console.log("Counter " + timerValue)
         
-        if(timerValue <= 0) {
+        if(timerValue == 0) {
             currentPlayer++;
             beforeGame();
             
@@ -262,6 +265,7 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
         clearInterval(intervalTimer);
         Main();
     } else {
+        document.getElementById('countgame').style.display = "none";
         clearInterval(intervalTimer);
         console.log('falsch')
         

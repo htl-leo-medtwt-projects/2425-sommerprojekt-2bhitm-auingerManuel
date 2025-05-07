@@ -1,5 +1,13 @@
+
 let players = JSON.parse(localStorage['players'] || '[]');
 let victorys = JSON.parse(localStorage['victorys'] || '[]');
+let calciQuotes = JSON.parse(localStorage['calci'] || '[]');
+let calciCounter = calciQuotes[calciQuotes.length - 1].count;
+console.log(calciQuotes);
+console.log(calciCounter)
+document.getElementById('calci').style.marginLeft = "85%";
+document.getElementById('calci').style.marginBottom = "4%"
+document.getElementById('calci').style.width = "10%"
 homePage();
 function homePage() {
     document.getElementById('leiste').style.display = 'grid';
@@ -20,6 +28,25 @@ function leiste() {
     let brick = "";
     brick += ` <p class = "infoText"> Manuel </p> <p class = "infoText">  Auinger </p> <p class = "infoText"> 2bhitm </p> <a href="https://www.instagram.com/manuel_au08/"><img src="./img/instagram-logo-instagram-icon-transparent-free-png 1.png" alt=""></a> <a href="./tipsAchievments.html"><img src="./img/final-lightbulb-100 1.png" alt=""></a>`
     document.getElementById('leiste').innerHTML = brick;
+}
+
+ControlCalci()
+
+function ControlCalci() {
+    calciCounter++;
+
+    if(calciCounter == 10) {
+        document.getElementById('calci').innerHTML = `<img src="./img/tutorWorried.png" alt="">`;
+    }
+
+    if(calciCounter > 10) {
+        document.getElementById('calci').innerHTML = `<img src="./img/tutorSits.png" alt="">`;
+    }
+
+    if(calciCounter == calciQuotes.length - 2) {
+        calciCounter = 5;
+    }
+    document.getElementById('calciChats').innerHTML = `<p> ${calciQuotes[calciCounter].sentence} </p> <div id = "continueChat" onclick = "ControlCalci()" > <img src="./img/icons8-close-50.png" alt=""> </div>`
 }
 
 

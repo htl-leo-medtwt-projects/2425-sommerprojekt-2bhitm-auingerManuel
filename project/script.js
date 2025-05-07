@@ -1,34 +1,33 @@
 // Startseite
 
-document.getElementById('box').innerHTML = ` Auf dieser Website Spielen 2 Spieler gegeneinander Mathe Spiele, um sich zu messen. <br> Viel Spaß <div id = "button" onclick = "getStartButton()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
+
 numb = 0;
 
-
+let calciCounter = 0;
+let playerCount = 0;
 let calciQuotes = [
   { sentence: "Hey Users my name is Calci i am youre Guide for this Math Game Website." },
   { sentence: "You can play agianst each other in three Math Games!" },
-  { sentence: "PLease fill in youre Name Player One" },
+  { sentence: "Please fill in youre Name Player One" },
   { sentence: "Good Job, now you Player Two" },
-  { sentence: "Now Press Submit to enter the Menu, we will meet there" },
+  { sentence: "Now Press Submit to enter the Menu, we will meet there <div id = 'submit'>  <a href='./homepage.html'>Submit</a> </div>"},
   { sentence: "Hey Overhere!" },
   { sentence: "This is the Homepage. we have left and right the View of youre Stats." },
-  { sentence: "Youre Point Counts are youre Total Points you gather from the three Games in the Middle" },
+  { sentence: "Youre Points are youre Total Points you gather from the three Games in the Middle" },
   { sentence: "We have CountGame, Geomatry Game and Prime Hunt " },
   { sentence: "On the bottom are the Contacs of the Creator if you need help" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" },
-  { sentence: "Fill Text" }
+  { sentence: "There isnt much to say anymore..." },
+  { sentence: "But i hope you have a great Time" },
+  { sentence: "And also i stay here and you can get the Infos all the Time" },
+  {sentence: "Hey welcome to CountGame both respected Players need to Start the Game on there own, after both runs Winner will be presented"},
+  {count: 0}
 ];
 
 
+localStorage['calci'] = JSON.stringify(calciQuotes);
 
+
+document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
 let players = [
      {
         points: 0,
@@ -75,9 +74,29 @@ document.getElementById('box').addEventListener("keyup",(e) => {
     }
 })
 
+function ControlCalci() {
+    calciCounter++;
+    calciQuotes[calciQuotes.length-1].count = calciCounter;
+    localStorage['calci'] = JSON.stringify(calciQuotes);
+    document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
+
+    if(calciCounter >= 2 && calciCounter <= 4 )  {
+        document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div>`
+    }
+
+
+
+    if(calciCounter == 2) {
+        
+        document.getElementById('createPlayer').style.display = "grid";
+        getCharacter();
+    } 
+}
+
 
 function getStartButton() {
     numb = 1;
+    
     document.getElementById('box').style.animation = 'buttonForm 1s';
     setTimeout(styling(), 1000)
     document.getElementById('box').innerHTML = `<div onclick = "getCharacter()"> <h1> Start Game </h1> </div>`
@@ -90,32 +109,35 @@ document.getElementById('box').style.fontSize = 'larger';
 }
 
 function getCharacter() {
+
+    if(calciQuotes == 2) {
+        document.getElementById('box').innerHTML = `${calciQuotes[calciCounter].sentence}`;
+    } 
+
+    if(calciQuotes > 2) {
+        document.getElementById['box'].innerHTML = `${calciQuotes[calciCounter].sentence}`;
+    }
    
-    document.getElementById('box').style.display = 'none';
 
     document.getElementById('createPlayer').innerHTML = `
-        <div id = "create-grid">
-        <div id="CreateplayerOne" class="boxCreate">
-            <label for="pl1">Spieler 1:</label>
-            <input type="text" name="pl1" id="pl1">
-            <div class = "submitName" onclick = "getname(0)"> Submit </div>
-        </div>
-        <div id="CreateplayerTwo" class="boxCreate">
-            <label for="pl2">Spieler 2:</label>
-            <input type="text" name="pl2" id="pl2">
-             <div class = "submitName" onclick = "getname(1)"> Submit</div>
-        </div>
-        </div>
-        <div id = "submit">  <a href="./homepage.html">Submit</a> </div>
+        <input id = "pl${playerCount}" type="text" placeholder=" Player ${playerCount + 1}">
+        <div id = "playerSubmit" onclick = "getname(${playerCount})"> <p> Submit </p> </div>
         `
 }
 
 function getname(player) {
     let players = JSON.parse(localStorage['players'] || '[]');
+    
+    players[player].name = document.getElementById(`pl${player}`).value;
+    playerCount++;
 
-    players[player].name = document.getElementById(`pl${player + 1}`).value;
-
-
+    ControlCalci();
+    if(playerCount < 2) {
+    getCharacter();
+    } else 
+    {
+        document.getElementById('createPlayer').style.display = "none";
+    }
     localStorage['players'] = JSON.stringify(players);
 }
 

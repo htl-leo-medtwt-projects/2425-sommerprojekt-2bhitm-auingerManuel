@@ -1,0 +1,16 @@
+#tipsAchievments-list {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 5%;
+    margin-top: 5%;
+}
+
+.tips-elements {
+    background-color: gray;
+    display: block;
+    width: 80%;
+    height: 10vh;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
