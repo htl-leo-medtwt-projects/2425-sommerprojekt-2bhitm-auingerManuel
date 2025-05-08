@@ -36,7 +36,7 @@ body {
 
 
 #countgame {
-    margin-top: 5%;
+    margin-top: 3%;
     display: none;
     grid-template-columns: auto;
     padding-top: 5%;
@@ -70,7 +70,7 @@ body {
     background-color: black;
     display: flex;
     flex-direction: row;
-    
+    margin-bottom: 2%;
 }
 
 
@@ -147,6 +147,7 @@ body {
     height: auto;
     display: block;
     background-color: black;
+    color: white;
 }
 
 

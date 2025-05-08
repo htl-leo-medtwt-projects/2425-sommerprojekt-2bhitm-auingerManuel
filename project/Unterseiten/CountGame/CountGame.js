@@ -7,6 +7,8 @@ let points = 0;
 
 let currentPlayer = 0;
 
+
+
 let countPoints = [
     {
         currentPoints:  0

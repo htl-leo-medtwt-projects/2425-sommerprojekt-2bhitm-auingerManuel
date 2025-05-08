@@ -3,11 +3,11 @@
 
 :root {
     --fontColor: #7aaaab;
-    --backgroundColorBox: #e5e2d3;
+    --backgroundColorBox: white;
     --backgroundColor: #051BA9;
     --right: #346224;
     --false: #A62929;
-    --border: #FFFFFF;
+    --border: black;
     --overlay: rgba(0, 0, 0, 0.495);
 }
 

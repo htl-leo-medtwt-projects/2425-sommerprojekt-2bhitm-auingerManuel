@@ -1,13 +1,14 @@
 body {
     font-family: jsMath-cmbx10;
+    background-color: #e6f0ff;
 }
 #tipsAchievments-list {
-    width: 100%;
-
-    display: grid;
-    grid-template-columns: auto;
-    gap: 5%;
-    margin-top: 5%;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    padding: 100px 0;
 }
 
 #Achievments-overlay {
@@ -22,6 +23,7 @@ body {
    width: 30%;
    position: fixed;
    left: 70%;
+   bottom: 10%;
 }
 
 #calci img {
@@ -31,17 +33,18 @@ body {
 
 .tips-elements {
    
-    border: black solid 0.1em;
+    border: white solid 0.1em;
     border-radius: 10px;
-    background-color: white;
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 80%;
     
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    color: white;
 }
 
 #calci {
@@ -61,8 +64,8 @@ body {
     border-radius: 12px;
     font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
-    color: #333;
-    background-color: rgb(186, 181, 181);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.815);
 }
 
 #return {
@@ -70,14 +73,16 @@ body {
     text-decoration: none;
 
 
-    background-color: #f0f0f0;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: #333;
+    background-color: black;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 20px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
     width: 40%;
     margin-left: auto;
     margin-right: auto;
@@ -93,6 +98,7 @@ body {
   }
 
 #return a {
+    color: white;
     text-decoration: none;
 }
 
@@ -109,13 +115,14 @@ body {
 
 
 #tips-headline {
+    background-color: black;
     padding-top: 5%;
     padding-bottom: 5%;
     width: 40%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    border: black solid 0.2em;
+    border: white solid 0.2em;
     border-radius: 10px;
 }
 
@@ -123,5 +130,5 @@ body {
 
     font-size: xx-large;
     text-align: center;
-    color: var(--fontColor);
+    color: white;
 }

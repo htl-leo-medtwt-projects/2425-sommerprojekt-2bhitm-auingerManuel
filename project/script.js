@@ -16,6 +16,7 @@ let calciQuotes = [
   { sentence: "Youre Points are youre Total Points you gather from the three Games in the Middle" },
   { sentence: "We have CountGame, Geomatry Game and Prime Hunt " },
   { sentence: "On the bottom are the Contacs of the Creator if you need help" },
+  { sentence: "Also you will also see a lightbulb that shows all the Achievments you gather around playing on the Website"},
   { sentence: "There isnt much to say anymore..." },
   { sentence: "But i hope you have a great Time" },
   { sentence: "And also i stay here and you can get the Infos all the Time" },
@@ -23,7 +24,41 @@ let calciQuotes = [
   {count: 0}
 ];
 
+let tips = [
+    { name: "10 Pointer", attchieved: false, tip: "One of the Player needs 10 Points" },
+    { name: "20 Pointer", attchieved: false, tip: "One of the Player needs 20 Points" },
+    { name: "30 Pointer", attchieved: false, tip: "One of the Player needs 30 Points" },
+    { name: "Last Chance!", attchieved: true, tip: "One Player needs to awnser at least in the last seconds!" },
+    { name: "Count Game sweat", attchieved: false, tip: "Play Count Game for at least 5 times" }, // Count Game
+    { name: "Placeholder", attchieved: false, tip: "Placeholder6" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder7" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder8" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder9" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder9" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder10" }, // Geomatry Game
+    { name: "Placeholder", attchieved: false, tip: "Placeholder11" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder12" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder13" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder14" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder15" }, // Prime Hunt
+    { name: "Placeholder", attchieved: false, tip: "Placeholder16" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder17" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder18" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder19" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder20" }, // Homepage
+    { name: "Placeholder", attchieved: false, tip: "Placeholder21" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder22" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder23" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder24" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder25" }, // Extra
+    { name: "Placeholder", attchieved: false, tip: "Placeholder26" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder27" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder28" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder29" },
+    { name: "Placeholder", attchieved: false, tip: "Placeholder30" }
+  ];
 
+localStorage['achievments'] = JSON.stringify(tips);
 localStorage['calci'] = JSON.stringify(calciQuotes);
 
 

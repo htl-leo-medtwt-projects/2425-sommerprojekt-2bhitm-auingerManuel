@@ -35,11 +35,11 @@ ControlCalci()
 function ControlCalci() {
     calciCounter++;
 
-    if(calciCounter == 10) {
+    if(calciCounter == 11) {
         document.getElementById('calci').innerHTML = `<img src="../img/tutorWorried.png" alt="">`;
     }
 
-    if(calciCounter > 10) {
+    if(calciCounter > 11) {
         document.getElementById('calci').innerHTML = `<img src="../img/tutorSits.png" alt="">`;
     }
 
