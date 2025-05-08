@@ -250,11 +250,9 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
     
     
         if(used == right) {
-           let audio = new Audio("../../rightanswer-95219.mp3")
+           let audio = new Audio("../../Sound/rightanswer-95219.mp3")
            audio.play();
         }
-  
-    
 
     
     console.log(Number.parseInt(userAnswer), Number.parseInt(answer))

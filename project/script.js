@@ -10,7 +10,7 @@ let calciQuotes = [
   { sentence: "You can play agianst each other in three Math Games!" },
   { sentence: "Please fill in youre Name Player One" },
   { sentence: "Good Job, now you Player Two" },
-  { sentence: "Now Press Submit to enter the Menu, we will meet there <div id = 'submit'>  <a href='./homepage.html'>Submit</a> </div>"},
+  { sentence: "Now Press Submit to enter the Menu, we will meet there <div id = 'submit'>  <a href='./HomePage/homepage.html'>Submit</a> </div>"},
   { sentence: "Hey Overhere!" },
   { sentence: "This is the Homepage. we have left and right the View of youre Stats." },
   { sentence: "Youre Points are youre Total Points you gather from the three Games in the Middle" },
@@ -164,14 +164,14 @@ function homePage() {
     leiste();
     update();
 }
-
+/*
 function leiste() {
     let brick = "";
-    brick += ` <p class = "infoText"> Manuel </p> <p class = "infoText">  Auinger </p> <p class = "infoText"> 2bhitm </p> <a href="https://www.instagram.com/manuel_au08/"><img src="./img/instagram-logo-instagram-icon-transparent-free-png 1.png" alt=""></a> <a href="./tipsAchievments.html"><img src="./img/final-lightbulb-100 1.png" alt=""></a>`
+    brick += ` <p class = "infoText"> Manuel </p> <p class = "infoText">  Auinger </p> <p class = "infoText"> 2bhitm </p> <a href="https://www.instagram.com/manuel_au08/"><img src="../img/instagram-logo-instagram-icon-transparent-free-png 1.png" alt=""></a> <a href="./tipsAchievments.html"><img src="../img/final-lightbulb-100 1.png" alt=""></a>`
     document.getElementById('leiste').innerHTML = brick;
 }
 
-
+*/
 function update() {
     for(let i = 0; i < 2; i++) {
         document.getElementById(`player${i + 1}`).innerHTML = `<h1> ${players[i].name} </h1> <p> Points: ${players[i].points} </p> <div class = "victory"> <p> Victories: ${victorys[i].length} </p> <div class = "win" id = "wins${i + 1}"> </div>`

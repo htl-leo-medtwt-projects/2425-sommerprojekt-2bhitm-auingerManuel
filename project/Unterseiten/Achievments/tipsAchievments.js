@@ -1,4 +1,5 @@
 gsap.registerPlugin(ScrollTrigger);
+let sections;
 let tips = [
     { name: "Placeholder", attchieved: false, tip: "Placeholder1" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder2" },
@@ -33,7 +34,7 @@ let tips = [
     { name: "Placeholder", attchieved: false, tip: "Placeholder30" }
   ];
 
-
+console.log(tips);
   function getTips(index) {
     document.getElementById('chat').style.display = "flex";
     document.getElementById('chat').innerHTML = `<h1> ${tips[index].tip} </h1> <div onclick = "closeTip()"> <img src="./img/icons8-close-50.png" alt=""> </div>`
@@ -56,22 +57,28 @@ Tips();
     for(let i = 0; i < tips.length; i++ ) {
 
         if(tips[i].attchieved) {
-            brick += `<div class = "tips-elements"> <h3> Achievment: ${i + 1} </h3> <h3> NAME:${tips[i].name} </h3> <div class = "state"><img src="./img/icons8-unlock-100.png" alt=""> </div> <div class = "tip" onclick = "getTips(${i})"> <h3> get Tipps </h3> </div> </div>`
+            brick += `<div class = "tips-elements"> <h3> Achievment: ${i + 1} </h3> <h3> NAME:${tips[i].name} </h3> <div class = "state"><img src="../../img/icons8-unlock-100.png" alt=""> </div> <div class = "tip" onclick = "getTips(${i})"> <h3> get Tipps </h3> </div> </div>`
         } else {
-             brick += `<div class = "tips-elements"> <h3> Achievment: ${i + 1} </h3> <h3> NAME:${tips[i].name} </h3> <div class = "state"><img src="./img/icons8-lock-100.png" alt=""> </div> <div class = "tip" onclick = "getTips(${i})"> <h3> get Tipps </h3> </div> </div>`
+             brick += `<div class = "tips-elements"> <h3> Achievment: ${i + 1} </h3> <h3> NAME:${tips[i].name} </h3> <div class = "state"><img src="../../img/icons8-lock-100.png" alt=""> </div> <div class = "tip" onclick = "getTips(${i})"> <h3> get Tipps </h3> </div> </div>`
         }
 
 
        
     }
     document.getElementById('tipsAchievments-list').innerHTML = brick;
+
+
+
+
+
+    sections = document.querySelectorAll('.tips-elements');
+    for(let i = 0; i < sections.length;i++) {
+        generateScrollAnimation(i);
+    }
+    
+
   }
 
-
-  let sections = document.querySelectorAll('.tips-elements');
-for(let i = 0; i < sections.length;i++) {
-    generateScrollAnimation(i);
-}
 
 function generateScrollAnimation(i) {
     let element = sections[i];
