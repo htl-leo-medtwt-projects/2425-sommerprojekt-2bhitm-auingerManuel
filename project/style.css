@@ -242,17 +242,18 @@ body {
     
 }
 #homePage {
+    margin-top: 2%;
     width: 80%;
     display: none;
     grid-template-columns: 30% auto 30%;
     gap: 5%;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 5%;
+    
 }
 
 #GamesNav-grid {
-    background-color: rgba(51, 49, 49, 0.495);
+    background-color: rgba(51, 49, 49, 0.916);
 }
 
 .player-grid {
@@ -265,7 +266,7 @@ body {
     background-color: var(--backgroundColorBox);
     color: var(--fontColor);
     border: 0.2em solid var(--border);
-    border-radius: 20deg;
+    border-radius: 10px;
 }
 
 #player1 {
@@ -373,7 +374,7 @@ body {
     top: 45%;
     position: relative;
     text-align: center;
-    color: #FFFFFF;
+    color: #135716;
 }
 
 #PrimeHunt a {
@@ -396,6 +397,7 @@ body {
 
 
 #leiste {
+    position: fixed;
     bottom: 0;
     display: none;
     gap: 5%;
