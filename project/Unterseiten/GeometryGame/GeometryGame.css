@@ -1,0 +1,90 @@
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+#Game {
+    display: grid;
+    grid-template-columns: 50% 20% auto;
+    background-color: #7aaaab;
+    width: 60%;
+    height: fit-content;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 0 10px;
+}
+
+
+#search {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    padding-top: 2%;
+    padding-right: 2%;
+    width: 25%;
+    margin-left: 20%;
+    margin-right: auto;
+    font-size: x-large;
+    text-align: center;
+    background-color: #7aaaab;
+    border-radius: 0 10px 0 0;
+}
+
+
+#Geomatry-Game {
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+#checkBox {
+    border: black solid 2px;
+    background-color: white;
+    width: 20vw;
+    height: 20vw;
+    margin-left: 10%;
+    margin-top: 25%;
+}
+
+#checkBox h3 {
+    margin-top: 45%;
+   text-align: center;
+}
+
+
+
+
+
+#options-grid {
+    width: 100%;
+    background: linear-gradient(to right,#7aaaab,#f0f0f0);
+}
+
+.options-elemts {
+    
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+#submit {
+     background-color: #f0f0f0;
+      padding: 20px;
+      
+     
+      width: 300px;
+      border-radius: 0 10px 10px 0;
+      text-align: center;
+     
+}
+
+#submit h1 {
+     margin-bottom: 15px;
+      color: #333;
+}
