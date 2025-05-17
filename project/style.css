@@ -17,12 +17,20 @@ body {
     overflow-y: hidden;
     overflow-x: hidden; 
     
-   
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
    
 }
 
 
+@font-face {
+    font-family: tanker;
+    src: url(./Font/Tanker-Regular.otf);
+}
 
+@font-face {
+    font-family: tuffy;
+    src: url(./Font/Tuffy-Regular.ttf);
+}
 
 #headline {
     
@@ -63,7 +71,7 @@ body {
     text-align: center;
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--fontColor);
-    font-family: jsMath-cmbx10;
+    font-family: tanker;
     font-size: 8vw;
     font-style: normal;
     font-weight: 700;
@@ -84,6 +92,7 @@ body {
     border-radius: 3%;
     color: var(--fontColor);
     font-size: larger;
+    font-family: tuffy;
 }
 
 #box a {
@@ -239,6 +248,7 @@ body {
     font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
     color: #333;
+    font-family: tuffy;
     
 }
 #homePage {
@@ -268,6 +278,8 @@ body {
     border: 0.2em solid var(--border);
     border-radius: 10px;
 }
+
+
 
 #player1 {
     margin-left: 2%;

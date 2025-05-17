@@ -74,7 +74,7 @@ function beforeGame() {
     
     console.log("test")
     
-    document.getElementById('startGame').innerHTML = `<div onclick = "Main()"> <h1> Start Game </h1> </div>`
+    document.getElementById('startGame').innerHTML = `<h1> Start Game </h1> `
 
     if(currentPlayer == 2) {
         endGame();

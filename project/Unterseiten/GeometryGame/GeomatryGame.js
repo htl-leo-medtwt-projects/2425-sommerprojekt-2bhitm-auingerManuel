@@ -13,47 +13,47 @@ let formeln = {
     area: [
         {
             id: "triangle",
-            text: "(a * b) / 2"
+            text: ""
 
         },
         {
-            id: "Quadrat",
+            id: "square",
             text: "a * a"
         },
         {
-            id: "Kreis",
+            id: "circle",
             text: "r² * pi"
         },
         {
-            id: "Parallel",
+            id: "parallelogram",
             text: "a * b"
         },
         {
-            id: "Trapez",
-            text: ""
+            id: "trapeze",
+            text: "1/2 * h * (a + c)"
         }
     ],
 
     scope: [
         {
             id: "triangle",
-            text: ""
+            text: "a + b + c"
         },
         {
-            id: "Quadrat",
-            text: ""
+            id: "square",
+            text: "4a"
         },
         {
-            id: "Kreis",
-            text: ""
+            id: "circle",
+            text: "2pir"
         },
         {
-            id: "Parallel",
-            text: ""
+            id: "parallelogram",
+            text: "2 * (a + b)"
         },
         {
-            id: "Trapez",
-            text: ""
+            id: "trapeze",
+            text: "(a + c) * h / 2"
         }
     ],
 
@@ -67,6 +67,9 @@ main();
 
 function main() {
 
+    
+    
+    document.querySelector("#submit h1").style.opacity = 0.5;
 
     qestArray = setqestArray();
     questid = setquestid();
@@ -170,16 +173,9 @@ function buildOptions() {
 
     for(let i = 0; i < op; i++) {
         
-          brick += `<div  class="options-elemts" draggable ="true" ><img id ="${formeln[qestArray][ids[i].num].id}"  src="../../img/green-square-1.png" alt=""></div>`
+          brick += `<div  class="options-elemts" draggable ="true" ><img id ="${formeln[qestArray][ids[i].num].id}"  src="../../img/GeomatryGame/${qestArray}_${formeln[qestArray][ids[i].num].id}.png" alt=""></div>`
         }
-
-
-
-
-
-
-
-
+    
     // brick += `<div  class="options-elemts" draggable ="true" ><img id ="${formeln[qestArray][rnd].id}"  src="../../img/green-square-1.png" alt=""></div>`
     document.getElementById('options-grid').innerHTML = brick;
 }
@@ -270,10 +266,37 @@ if(formeln[qestArray][questid].id == document.querySelector("#checkBox img").id)
   console.log("falsch")
 }
 
+animationSumbit();
+
 }
 function nextQuestion() {
   dropZone.innerHTML = "<h3> Drop youre answer here </h3>";
   dropZone.className = "drop-zone";
    answered = false
-  main();
+   
+ main();
+} 
+
+
+
+function animationSumbit()  {
+  let value = 0.5;
+  /*
+  for(let i = 0; i < 5;i++ ) {
+  setTimeout(() => {
+    document.querySelector('#submit h1').style.opacity = value += 0.1;
+  }, 1000);
+
+  
+  }
+*/
+document.querySelector("#submit h1").style.opacity = 1.0;
+
+  document.getElementById('submit').addEventListener("click",() => {
+    nextQuestion();
+  })
+
 }
+
+
+

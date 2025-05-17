@@ -1,7 +1,18 @@
 img {
-    width: 100%;
+    width: 90%;
     height: auto;
 }
+
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@font-face {
+    font-family: tanker;
+    src: url(../../Font/Tanker-Regular.otf);
+}
+
 
 
 #Game {
@@ -24,12 +35,12 @@ img {
     gap: 2%;
     padding-top: 2%;
     padding-right: 2%;
-    width: 25%;
+    width: 30%;
     margin-left: 20%;
     margin-right: auto;
     font-size: x-large;
     text-align: center;
-    background-color: #7aaaab;
+    background: linear-gradient(to right,#7aaaab,#f0f0f0);
     border-radius: 0 10px 0 0;
 }
 
@@ -78,13 +89,21 @@ img {
       padding: 20px;
       
      
-      width: 300px;
+      
       border-radius: 0 10px 10px 0;
       text-align: center;
      
 }
 
 #submit h1 {
-     margin-bottom: 15px;
+    
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #7aaaab;
+     margin-top: 80%;
       color: #333;
+        transition: all linear 2s;
+      font-family: tuffy;
 }
+
+

@@ -1,7 +1,12 @@
 body {
     width: 100vw;
     height: 100vh;
-    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@font-face {
+    font-family: tuffy;
+    src: url(../../Font/Tuffy-Regular.ttf);
 }
 
 
@@ -10,18 +15,19 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 20vw;
+    width: 20%;
     height: 15vh;
     background-color: var(--backgroundColorBox);
 }
 
 #startGame h1 {
-    position: absolute;
-    left: 45%;
-    top: 5%;
+    margin-top: 5%;
+    text-align: center;
+    
     text-align: center;
     font-size: xx-large;
     color: var(--fontColor);
+    font-family: tuffy;
 }
 
 #countGame-overlay {
