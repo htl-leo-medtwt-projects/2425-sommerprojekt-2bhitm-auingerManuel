@@ -16,7 +16,7 @@ if(config[0].countGameCount == 5) {
     achievments[5].attchieved = true;
     achievments[achievments.length - 1].count += 1;
     localStorage['achievments'] = JSON.stringify(achievments);
-
+    achievment();
 }
 
 localStorage['config'] = JSON.stringify(config);
@@ -172,6 +172,7 @@ function Main() {
             achievments[4].attchieved = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);
+            achievment();
         }
 
         
@@ -297,18 +298,21 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
             achievments[0].attchieved = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);
+            achievment();
         }
 
         if(countPoints[currentPlayer].currentPoints == 20 && achievments[1].attchieved == false) {
             achievments[1].attchieved = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);
+            achievment();
         }
 
         if(countPoints[currentPlayer].currentPoints == 30 && achievments[2].attchieved == false) {
             achievments[2].achievments = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);
+            achievment();
         }
 
 
@@ -316,6 +320,7 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
             achievments[3].attchieved = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);
+            achievment();
         }
         
         clearInterval(intervalTimer);
@@ -338,4 +343,12 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
         }
         
     }
+}
+
+
+function achievment() {
+    document.getElementById('achievments').style.display = "block";
+    setTimeout(() => {
+        document.getElementById('achievments').style.display = "none";
+    }, 3000)
 }

@@ -9,6 +9,45 @@ body {
     src: url(../../Font/Tuffy-Regular.ttf);
 }
 
+#achievments {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: fixed;
+    left: 80%;
+    bottom: 0;
+    width: 15%;
+    background-color: yellow;
+    display: none;
+    font-size: larger;
+    animation: achievment 2s ease-in-out;
+}
+
+
+@keyframes achievment {
+    0% {
+        transform: scale(1);
+
+    }
+
+    20% {
+        transform: scale(1.2);
+        transform: rotate(-10deg);
+    }
+
+
+
+    70% {
+        transform: scale(1.5);
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: scale(1);
+        transform: rotate(0deg);
+        
+    }
+}
 
 #startGame {
     border-radius: 6%;
@@ -187,13 +226,13 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--backgroundColorBox);
+    background-color: #f0f0f0;
      margin-left: auto;
      margin-right: auto;
     display: block;
     text-align: center;
     
-    color: var(--fontColor);
+    color: var(--backgroundColor);
     transition: all 0.3s ease;
 }
 

@@ -29,7 +29,7 @@ let tips = [
     { name: "20 Pointer", attchieved: false, tip: "One of the Player needs 20 Points" },
     { name: "30 Pointer", attchieved: false, tip: "One of the Player needs 30 Points" },
     { name: "50 Pointer", attchieved: false, tip: "One of the Player needs 50 Points" },
-    { name: "Last Chance!", attchieved: true, tip: "One Player needs to awnser at least in the last seconds!" },
+    { name: "Last Chance!", attchieved: false, tip: "One Player needs to awnser at least in the last seconds!" },
     { name: "Count Game sweat", attchieved: false, tip: "Play Count Game for at least 5 times" }, // Count Game
     { name: "Lucky 4", attchieved: false, tip: "One of the Players need to get 4 following Questions right" },
     { name: "Ha! What a coincidence", attchieved: false, tip: "Get the same Question Again" },
@@ -63,7 +63,12 @@ let tips = [
   let config = [
     {
         countGameCount: 0
+    },
+    {
+        geomatryGameCount: 0
     }
+    
+    
   ]
 
     localStorage['config'] = JSON.stringify(config);

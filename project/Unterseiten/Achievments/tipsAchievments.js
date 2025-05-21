@@ -16,8 +16,14 @@ console.log(tips);
 
 
 Tips();
+
+
+function Count() {
+  document.getElementById('count').innerHTML = `<h1> ${tips[tips.length - 1].count} : ${tips.length - 1} Achievments unlocked </h1>`;
+}
   
   function Tips() {
+    Count();
     let brick = "";
     for(let i = 0; i < tips.length - 1; i++ ) {
 

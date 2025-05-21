@@ -1,13 +1,40 @@
 
 let currentPlayer = 0;
 
-let players = JSON.parse(localStorage['players'] || '[]');
-console.log(players);
-let achievmetns = JSON.parse(localStorage['achievments'] || '[]')
-console.log(achievmetns);
+
 
 const dropZone = document.getElementById("checkBox");
 dropZone.innerHTML = "<h3> Drop youre answer here </h3>";
+
+
+let currrentPlayer = 0;
+
+
+let Point = [
+  {
+    points: 0,
+  }, 
+  {
+    points: 0,
+  }
+]
+
+let achievments = JSON.parse(localStorage['achievments'] || '[]')
+console.log(achievments);
+let players = JSON.parse(localStorage['players'] || '[]');
+console.log(players);
+let config = JSON.parse(localStorage['config'] || '[]');
+console.log(config);
+let points = 0;
+
+
+config[1].geomatryGameCount += 1;
+localStorage['config'] = JSON.stringify(config);
+
+if(config[1].geomatryGameCount == 5 && achievments[11].attchieved == false) {
+  achievments[11].attchieved = true;
+  achievments[achievments.length - 1].count += 1;
+}
 
 let formeln = {
     area: [
@@ -56,14 +83,33 @@ let formeln = {
     ],
 
 }
+
+
+
+
 let qestArray = "";
 
 let questid = 0;
 
 main();
 
+function CurrentPlayer() {
+  let brick = "";
+  for(let i = 0; i < players.length; i++) { 
+    if(i == currentPlayer) {
+      brick += `<p style = "color: #346224"> Player: ${players[i].name} Points: ${Point[i].points} </p> <div id = "Img${i}"> </div>`;
+    } else {
+
+
+      brick += `<p> Player: ${players[i].name} Points: ${Point[i].points} </p> <div id = "Img${i}"> </div>`;
+    }
+    }
+  document.getElementById('currentplayer').innerHTML = brick;
+}
 
 function main() {
+
+    CurrentPlayer();
 
     document.getElementById('checkBox').style.border = "black 2px solid"
     
@@ -248,12 +294,21 @@ console.log(document.querySelector("#checkBox img").id);
 
 if(formeln[qestArray][questid].id == document.querySelector("#checkBox img").id) {
   console.log("richtig")
+  Point[currentPlayer].points += 10;
+  document.getElementById('output').innerHTML = `<p style = "color: #346224"> Right + 10 Points </p>`
 
-  document.getElementById('checkBox').style.border = "green 5px solid"
+  document.getElementById('checkBox').style.border = "#346224 5px solid"
 
 
 } else {
+  Point[currentPlayer].points -= 2;
   console.log("falsch")
+  document.getElementById('output').innerHTML = `<p style = "color: #A62929"> Wrong - 2 Points </p>`
+  document.getElementById('checkBox').style.border = "#A62929 5px solid"
+  currentPlayer += 1;
+  if(currentPlayer > players.length - 1) {
+    currentPlayer = 0;
+  }
 }
 
 animationSumbit();
@@ -262,9 +317,9 @@ animationSumbit();
 function nextQuestion() {
   dropZone.innerHTML = "<h3> Drop youre answer here </h3>";
   dropZone.className = "drop-zone";
-   answered = false
-   
- main();
+  answered = false
+  document.getElementById('output').innerHTML = "<p>Waiting...</p>";
+  main();
 } 
 
 
@@ -286,6 +341,14 @@ document.querySelector("#submit h1").style.opacity = 1.0;
     nextQuestion();
   })
 
+}
+
+
+function achievment() {
+    document.getElementById('achievments').style.display = "block";
+    setTimeout(() => {
+        document.getElementById('achievments').style.display = "none";
+    }, 3000)
 }
 
 
