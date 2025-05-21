@@ -28,16 +28,16 @@ let tips = [
     { name: "10 Pointer", attchieved: false, tip: "One of the Player needs 10 Points" },
     { name: "20 Pointer", attchieved: false, tip: "One of the Player needs 20 Points" },
     { name: "30 Pointer", attchieved: false, tip: "One of the Player needs 30 Points" },
+    { name: "50 Pointer", attchieved: false, tip: "One of the Player needs 50 Points" },
     { name: "Last Chance!", attchieved: true, tip: "One Player needs to awnser at least in the last seconds!" },
     { name: "Count Game sweat", attchieved: false, tip: "Play Count Game for at least 5 times" }, // Count Game
-    { name: "Placeholder", attchieved: false, tip: "Placeholder6" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder7" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder8" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder9" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder9" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder10" }, // Geomatry Game
-    { name: "Placeholder", attchieved: false, tip: "Placeholder11" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder12" },
+    { name: "Lucky 4", attchieved: false, tip: "One of the Players need to get 4 following Questions right" },
+    { name: "Ha! What a coincidence", attchieved: false, tip: "Get the same Question Again" },
+    { name: "Wrong Drop", attchieved: false, tip: "get the Question wrong" },
+    { name: "Drag Calci", attchieved: false, tip: "Drag Calci in the Box" },
+    { name: "Geomatry Master", attchieved: false, tip: "Get all 10 right" }, // Geomatry Game
+    { name: "Geomatry Sweat", attchieved: false, tip: "Play Geomaatry Game 5 times" },
+    { name: "Intercact with calci", attchieved: false, tip: "Talk with cacli for the first Time" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder13" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder14" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder15" }, // Prime Hunt
@@ -55,8 +55,18 @@ let tips = [
     { name: "Placeholder", attchieved: false, tip: "Placeholder27" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder28" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder29" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder30" }
+    { name: "Placeholder", attchieved: false, tip: "Placeholder30" },
+    {count: 0}
   ];
+
+
+  let config = [
+    {
+        countGameCount: 0
+    }
+  ]
+
+    localStorage['config'] = JSON.stringify(config);
 
 localStorage['achievments'] = JSON.stringify(tips);
 localStorage['calci'] = JSON.stringify(calciQuotes);
@@ -81,11 +91,7 @@ localStorage['victorys'];
 
 
 let victorys = [
-    [
-        {
-            name: "Count Game"
-        }
-    ],
+    [],
     []
 ]
 
@@ -113,10 +119,10 @@ function ControlCalci() {
     calciCounter++;
     calciQuotes[calciQuotes.length-1].count = calciCounter;
     localStorage['calci'] = JSON.stringify(calciQuotes);
-    document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
+    document.getElementById('box').innerHTML = `<div> <p> ${calciQuotes[calciCounter].sentence} </p> </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
 
     if(calciCounter >= 2 && calciCounter <= 4 )  {
-        document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div>`
+        document.getElementById('box').innerHTML = `<div> <p> ${calciQuotes[calciCounter].sentence} </p> </div>`
     }
 
 

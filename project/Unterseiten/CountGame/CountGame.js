@@ -7,6 +7,19 @@ let points = 0;
 
 let currentPlayer = 0;
 
+let config = JSON.parse(localStorage['config'] || '[]');
+let achievments = JSON.parse(localStorage['achievments'] || '[]');
+
+config[0].countGameCount = config[0].countGameCount + 1;
+
+if(config[0].countGameCount == 5) {
+    achievments[5].attchieved = true;
+    achievments[achievments.length - 1].count += 1;
+    localStorage['achievments'] = JSON.stringify(achievments);
+
+}
+
+localStorage['config'] = JSON.stringify(config);
 
 
 let countPoints = [
@@ -17,6 +30,8 @@ let countPoints = [
         currentPoints: 0
     }
 ]
+
+
 
 let calci = JSON.parse(localStorage['calci'] || '[]' )
 
@@ -83,15 +98,22 @@ function beforeGame() {
 }
 
 function endGame() {
+
+    let victories = JSON.parse(localStorage['victorys'] || '[]');
+
     let winner = "";
     document.getElementById('calci').style.display = "none"
     if(countPoints[pl1].currentPoints != countPoints[pl2].currentPoints) {
 
         if(countPoints[pl1].currentPoints > countPoints[pl2].currentPoints) {
-            localStorage['victorys'][pl1] += JSON.stringify('{"name": "Countgame"}')
+           victories[pl1].push({
+                name: players[pl1].name, Game: "CountGame", points: countPoints[pl1].currentPoints
+            })
             winner = players[pl1].name;
         } else {
-            localStorage['victorys'][pl2] += JSON.stringify('{"name": "Countgame"}')
+            victories[pl2].push({
+                name: players[pl2].name, Game: "CountGame", points: countPoints[pl2].currentPoints
+            });
             winner = players[pl2].name;
         }
         document.getElementById('points').innerHTML = `<p> ${players[pl1].name} - ${countPoints[pl1].currentPoints} : ${countPoints[pl2].currentPoints} - ${players[pl2].name} </p>`
@@ -101,7 +123,7 @@ function endGame() {
         document.getElementById('winner').innerHTML = "<p> Draw </p>"
     }   
     document.getElementById('end').style.display = "grid";
-
+    localStorage['victorys'] = JSON.stringify(victories);
     localStorage['players'] = JSON.stringify(players);
 }
 
@@ -144,6 +166,14 @@ function Main() {
    
     const intervalTimer = setInterval(() => {
         console.log("Counter " + timerValue)
+
+
+        if(timerValue == 1 && achievments[4].attchieved == false) {
+            achievments[4].attchieved = true;
+            achievments[achievments.length - 1].count =+ 1;
+            localStorage['achievments'] = JSON.stringify(achievments);
+        }
+
         
         if(timerValue == 0) {
             currentPlayer++;
@@ -262,6 +292,32 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
         console.log("richtig")
         countPoints[currentPlayer].currentPoints++;
         
+
+        if(countPoints[currentPlayer].currentPoints == 10 && achievments[0].attchieved == false) {
+            achievments[0].attchieved = true;
+            achievments[achievments.length - 1].count =+ 1;
+            localStorage['achievments'] = JSON.stringify(achievments);
+        }
+
+        if(countPoints[currentPlayer].currentPoints == 20 && achievments[1].attchieved == false) {
+            achievments[1].attchieved = true;
+            achievments[achievments.length - 1].count =+ 1;
+            localStorage['achievments'] = JSON.stringify(achievments);
+        }
+
+        if(countPoints[currentPlayer].currentPoints == 30 && achievments[2].attchieved == false) {
+            achievments[2].achievments = true;
+            achievments[achievments.length - 1].count =+ 1;
+            localStorage['achievments'] = JSON.stringify(achievments);
+        }
+
+
+        if(countPoints[currentPlayer].currentPoints == 50 && achievments[3].attchieved == false) {
+            achievments[3].attchieved = true;
+            achievments[achievments.length - 1].count =+ 1;
+            localStorage['achievments'] = JSON.stringify(achievments);
+        }
+        
         clearInterval(intervalTimer);
         Main();
     } else {
@@ -272,6 +328,9 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
         players[currentPlayer].points += countPoints[currentPlayer].currentPoints;
         
         currentPlayer++;
+
+       
+
         if(currentPlayer <= 1) {
             beforeGame();
         } else {

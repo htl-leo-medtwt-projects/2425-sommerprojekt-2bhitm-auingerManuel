@@ -95,6 +95,7 @@ body {
     font-family: tuffy;
 }
 
+
 #box a {
     text-decoration: none;
     
@@ -249,13 +250,13 @@ body {
     font-size: 1rem;
     color: #333;
     font-family: tuffy;
-    
+    margin-top: 5%;
 }
 #homePage {
     margin-top: 2%;
-    width: 80%;
+    width: 60%;
     display: none;
-    grid-template-columns: 30% auto 30%;
+    grid-template-columns: auto;
     gap: 5%;
     margin-left: auto;
     margin-right: auto;
@@ -263,16 +264,33 @@ body {
 }
 
 #GamesNav-grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
     background-color: rgba(51, 49, 49, 0.916);
 }
 
 .player-grid {
     display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 10vh;       
-    align-items: flex-start;
+    grid-template-columns: auto auto auto;
+  
+    
     width: 100%;
-    height: 70vh;
+    
+    background-color: var(--backgroundColorBox);
+    color: var(--fontColor);
+    border: 0.2em solid var(--border);
+    border-radius: 10px;
+}
+
+#victoryBox {
+    display: none;
+    grid-template-columns: auto;
+   
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    height: fit-content;
     background-color: var(--backgroundColorBox);
     color: var(--fontColor);
     border: 0.2em solid var(--border);
@@ -280,15 +298,27 @@ body {
 }
 
 
-
-#player1 {
-    margin-left: 2%;
-    
+#return-victory {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    display: block;
+    width: 20%;
+    background-color: var(--backgroundColorBox);
+    color: var(--fontColor);
+    font-size: x-large;
+    text-align: center;
 }
 
-#player2 {
-    margin-right: 2%;
-}
+
+#victoryBox h1 {
+    text-align: center;
+    font-size: 5vw;
+}   
+
+
 
 .player-grid h1 {
     text-align: center;
@@ -296,6 +326,7 @@ body {
 }
 
 .player-grid p {
+    
     text-align: center;
     font-size: 3vw;
 }

@@ -50,10 +50,31 @@ function ControlCalci() {
 }
 
 
+function victories(player) {
+    document.getElementById('victoryBox').style.display = "grid";
+    document.getElementById('homePage').style.display = "none";
+    document.getElementById('calciChats').style.display = "none";
+    document.getElementById('victoryBox').innerHTML = `<h1> ${players[player].name} </h1>`
+    let brick = "<ol>";
+
+    for(let i = 0; i < victorys[player].length; i++) {
+        brick += `<li> ${victorys[player][i].Game} : ${victorys[player][i].points} </li>`;
+    }
+
+    brick += "</ol>"
+
+    document.getElementById('victoryBox').innerHTML +=  brick;
+    document.getElementById('victoryBox').innerHTML += `<div onclick = "returnHome()" id = "return-victory"> Return </div>`
+    
+}  
+
+
 function update() {
     for(let i = 0; i < 2; i++) {
-        document.getElementById(`player${i + 1}`).innerHTML = `<h1> ${players[i].name} </h1> <p> Points: ${players[i].points} </p> <div class = "victory"> <p> Victories: ${victorys[i].length} </p> <div class = "win" id = "wins${i + 1}"> </div>`
+        document.getElementById(`player${i + 1}`).innerHTML = `<h1> ${players[i].name} </h1> <p> Points: ${players[i].points} </p> <div class = "victory-Onlick" onclick = "victories(${i})" class = "victory"> <p> Victories: ${victorys[i].length} </p></div>`
     }
+
+   
 
     let brick = "";
 
@@ -69,7 +90,13 @@ function update() {
         brick = 'No Victories';
     }
     brick += '</div>'
-    document.getElementById(`wins${i + 1}`).innerHTML += brick;
+   
     }
+}
+
+function returnHome() {
+    document.getElementById('homePage').style.display = "grid";
+    document.getElementById('victoryBox').style.display = "none";
+    document.getElementById('calciChats').style.display = "flex";
 }
 

@@ -18,14 +18,15 @@ body {
 #Game {
     display: grid;
     grid-template-columns: 50% 20% auto;
-    background-color: #7aaaab;
+    
     width: 60%;
     height: fit-content;
     
     margin-left: auto;
     margin-right: auto;
-
+    background-color: #7aaaab;
     border-radius: 0 10px;
+    border-radius: 0 10px 10px 10px;
 }
 
 
@@ -52,6 +53,7 @@ body {
 }
 
 #checkBox {
+    
     border: black solid 2px;
     background-color: white;
     width: 20vw;

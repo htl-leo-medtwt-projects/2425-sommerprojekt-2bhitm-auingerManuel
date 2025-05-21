@@ -13,47 +13,45 @@ let formeln = {
     area: [
         {
             id: "triangle",
-            text: ""
-
         },
         {
             id: "square",
-            text: "a * a"
+           
         },
         {
             id: "circle",
-            text: "r² * pi"
+            
         },
         {
             id: "parallelogram",
-            text: "a * b"
+            
         },
         {
             id: "trapeze",
-            text: "1/2 * h * (a + c)"
+            
         }
     ],
 
     scope: [
         {
-            id: "triangle",
-            text: "a + b + c"
+            id: "triangle", 
+            
         },
         {
             id: "square",
-            text: "4a"
+            
         },
         {
             id: "circle",
-            text: "2pir"
+            
         },
         {
             id: "parallelogram",
-            text: "2 * (a + b)"
+            
         },
         {
             id: "trapeze",
-            text: "(a + c) * h / 2"
+           
         }
     ],
 
@@ -67,7 +65,7 @@ main();
 
 function main() {
 
-    
+    document.getElementById('checkBox').style.border = "black 2px solid"
     
     document.querySelector("#submit h1").style.opacity = 0.5;
 
@@ -95,21 +93,9 @@ function main() {
 }
 
 function qestAusgabe() {
-  document.getElementById('search').innerHTML = `<p id = "pfusch"> Sie suchen die/denn </p>  <p style = "color: white" >${qestArray} </p> <p> für </p> <p style = "color: white"> ${formeln[qestArray][questid].id} </p>`;
+  document.getElementById('search').innerHTML = `<p id = "pfusch"> You are looking for the </p>  <p style = "color: white" >${qestArray} </p> <p> of the </p> <p style = "color: white"> ${formeln[qestArray][questid].id} </p>`;
 
-  switch(qestArray) {
-    case "Fläche":
-      document.getElementById("pfusch").innerHTML = "Sie suchen die "
-    break;
-
-
-    case "Umfang":
-
-    document.getElementById("pfusch").innerHTML = "Sie suchen denn "
-
-
-  }
-
+  
 
 }
 
@@ -262,6 +248,10 @@ console.log(document.querySelector("#checkBox img").id);
 
 if(formeln[qestArray][questid].id == document.querySelector("#checkBox img").id) {
   console.log("richtig")
+
+  document.getElementById('checkBox').style.border = "green 5px solid"
+
+
 } else {
   console.log("falsch")
 }
