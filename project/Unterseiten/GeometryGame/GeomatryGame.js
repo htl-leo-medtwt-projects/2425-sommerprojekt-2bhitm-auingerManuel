@@ -19,7 +19,10 @@ let Point = [
   }
 ]
 
-let achievments = JSON.parse(localStorage['achievments'] || '[]')
+let pl1 = 0;
+let pl2 = 1;
+
+let achievments = JSON.parse(localStorage['achievments'] || '[]');
 console.log(achievments);
 let players = JSON.parse(localStorage['players'] || '[]');
 console.log(players);
@@ -29,12 +32,21 @@ let points = 0;
 
 
 config[1].geomatryGameCount += 1;
-localStorage['config'] = JSON.stringify(config);
 
-if(config[1].geomatryGameCount == 5 && achievments[11].attchieved == false) {
+
+if(config[1].geomatryGameCount > 5 && achievments[11].attchieved == false) {
+  console.log("test")
+  
   achievments[11].attchieved = true;
   achievments[achievments.length - 1].count += 1;
+  localStorage['achievments'] = JSON.stringify(achievments);
+  achievment();
 }
+
+localStorage['config'] = JSON.stringify(config);
+
+
+let achievmentCounter = 0;
 
 let formeln = {
     area: [
@@ -288,31 +300,58 @@ function drop(e) {
 }
 function checkAnswer() {
 answered = true
-console.log("test");
+
 
 console.log(document.querySelector("#checkBox img").id);
 
 if(formeln[qestArray][questid].id == document.querySelector("#checkBox img").id) {
   console.log("richtig")
+  achievmentCounter++;
   Point[currentPlayer].points += 10;
+  
   document.getElementById('output').innerHTML = `<p style = "color: #346224"> Right + 10 Points </p>`
 
   document.getElementById('checkBox').style.border = "#346224 5px solid"
 
 
 } else {
+  	achievmentCounter = 0;
+  if(achievments[8].attchieved == false) {
+    achievments[8].attchieved = true;
+    achievments[achievments.length - 1].count += 1;
+
+    localStorage['achievments'] = JSON.stringify(achievments);
+    achievment();
+  }
+
+
   Point[currentPlayer].points -= 2;
   console.log("falsch")
   document.getElementById('output').innerHTML = `<p style = "color: #A62929"> Wrong - 2 Points </p>`
   document.getElementById('checkBox').style.border = "#A62929 5px solid"
   currentPlayer += 1;
   if(currentPlayer > players.length - 1) {
-    currentPlayer = 0;
+    endGame();
   }
 }
 
 animationSumbit();
 
+
+if(achievmentCounter >= 4 && achievments[9].attchieved == false) {
+  achievments[9].attchieved = true;
+  achievments[achievments.length - 1].count += 1;
+  localStorage['achievments'] = JSON.stringify(achievments);
+  achievment();
+
+}
+
+if(achievmentCounter >= 10 && achievments[10].attchieved == false) {
+  achievments[10].attchieved = true;
+  achievments[achievments.length - 1].count += 1;
+  localStorage['achievments'] = JSON.stringify(achievments);
+  achievment();
+}
 }
 function nextQuestion() {
   dropZone.innerHTML = "<h3> Drop youre answer here </h3>";
@@ -345,10 +384,50 @@ document.querySelector("#submit h1").style.opacity = 1.0;
 
 
 function achievment() {
+
+    localStorage['achievment'] = JSON.stringify(achievments);
+
     document.getElementById('achievments').style.display = "block";
     setTimeout(() => {
         document.getElementById('achievments').style.display = "none";
     }, 3000)
+}
+
+
+function endGame() {
+    document.getElementById('Geomatry-Game').style.display = "none";
+    document.getElementById('currentplayer').style.display = "none"
+    let victories = JSON.parse(localStorage['victorys'] || '[]');
+
+    for(let i = 0; i < players.length; i++) {
+      players[i].points += Point[i].points;
+    }
+
+
+    let winner = "";
+    
+    if(Point[pl1].points != Point[pl2].points) {
+
+        if(Point[pl1].points > Point[pl2].points) {
+           victories[pl1].push({
+                name: players[pl1].name, Game: "GeomatryGame", points: Point[pl1].points
+            })
+            winner = players[pl1].name;
+        } else {
+            victories[pl2].push({
+                name: players[pl2].name, Game: "GeomatryGame", points: Point[pl2].points
+            });
+            winner = players[pl2].name;
+        }
+        document.getElementById('points').innerHTML = `<p> ${players[pl1].name} - ${Point[pl1].points} : ${Point[pl2].points} - ${players[pl2].name} </p>`
+    document.getElementById('winner').innerHTML = `<p> ${winner} hat gewonnen </p>`;
+        
+    } else {    
+        document.getElementById('winner').innerHTML = "<p> Draw </p>"
+    }   
+    document.getElementById('end').style.display = "grid";
+    localStorage['victorys'] = JSON.stringify(victories);
+    localStorage['players'] = JSON.stringify(players);
 }
 
 

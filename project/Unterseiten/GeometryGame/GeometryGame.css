@@ -54,6 +54,32 @@ body {
     }
 }
 
+
+.endElements {
+    width: 100%;
+    display: block;
+    text-align: center;
+    
+    color: var(--fontColor);
+    
+}
+
+#end {
+    
+    font-size: larger;
+    background-color: white;
+    border: solid black 2px;
+    border-radius: 10px;
+    width: 40%;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    grid-template-columns: auto;
+    height: min-content;
+
+}
+
 #return {
     border-radius: 10px;
     width: 20%;

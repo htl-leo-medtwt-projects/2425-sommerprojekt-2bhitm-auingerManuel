@@ -397,12 +397,14 @@ body {
     text-decoration: none;
 }
 
-#PrimeHunt {
+#EndRun {
+    border-radius: 10px;
+    margin-top: 10%;
     width: 10vw;
-    height: auto;
+    height: 50%;
     flex-shrink: 0;
     aspect-ratio: 1/1;
-    background-image: url(./img/backGroundPrimeHunt.png);
+    background-color: #7aaaab;
     background-size: contain;
     background-position: center;
     margin-left: auto;
@@ -413,14 +415,15 @@ body {
     border: 0em solid var(--border);
 }
 
-#PrimeHunt h2 {
-    top: 45%;
+#EndRun h2 {
+    
     position: relative;
+    top: 20%;
     text-align: center;
-    color: #135716;
+    color: white;
 }
 
-#PrimeHunt a {
+#EndRun a {
     text-decoration: none;
 }
 
@@ -478,4 +481,44 @@ body {
 #calci img {
     width: 100%;
     height: auto;
+}
+
+
+#achievments {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: fixed;
+    right: 0;
+    top: 10;
+    width: 15%;
+    background-color: yellow;
+    display: none;
+    font-size: larger;
+    animation: achievment 2s ease-in-out;
+}
+
+@keyframes achievment {
+    0% {
+        transform: scale(1);
+
+    }
+
+    20% {
+        transform: scale(1.2);
+        transform: rotate(-10deg);
+    }
+
+
+
+    70% {
+        transform: scale(1.5);
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: scale(1);
+        transform: rotate(0deg);
+        
+    }
 }

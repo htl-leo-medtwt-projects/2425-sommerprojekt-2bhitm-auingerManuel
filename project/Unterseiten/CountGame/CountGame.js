@@ -12,12 +12,14 @@ let achievments = JSON.parse(localStorage['achievments'] || '[]');
 
 config[0].countGameCount = config[0].countGameCount + 1;
 
-if(config[0].countGameCount == 5) {
+if(config[0].countGameCount > 5 && achievments[5].attchieved == false) {
     achievments[5].attchieved = true;
     achievments[achievments.length - 1].count += 1;
     localStorage['achievments'] = JSON.stringify(achievments);
     achievment();
 }
+
+console.log(achievments);
 
 localStorage['config'] = JSON.stringify(config);
 
@@ -170,7 +172,7 @@ function Main() {
 
         if(timerValue == 1 && achievments[4].attchieved == false) {
             achievments[4].attchieved = true;
-            achievments[achievments.length - 1].count =+ 1;
+            achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
         }
@@ -217,10 +219,6 @@ function antworten(answer, intervalTimer) {
         nr2 = getrndNr(answer + 10);
     }while (nr2 == nr1 && nr2 == answer);
     
-
-    
-
-
     console.log(nr1 ,nr2)
     switch(rnd) {
         case 1:
@@ -296,21 +294,21 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
 
         if(countPoints[currentPlayer].currentPoints == 10 && achievments[0].attchieved == false) {
             achievments[0].attchieved = true;
-            achievments[achievments.length - 1].count =+ 1;
+            achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
         }
 
         if(countPoints[currentPlayer].currentPoints == 20 && achievments[1].attchieved == false) {
             achievments[1].attchieved = true;
-            achievments[achievments.length - 1].count =+ 1;
+            achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
         }
 
         if(countPoints[currentPlayer].currentPoints == 30 && achievments[2].attchieved == false) {
             achievments[2].achievments = true;
-            achievments[achievments.length - 1].count =+ 1;
+            achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
         }

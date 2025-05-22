@@ -3,6 +3,7 @@ let players = JSON.parse(localStorage['players'] || '[]');
 let victorys = JSON.parse(localStorage['victorys'] || '[]');
 let calciQuotes = JSON.parse(localStorage['calci'] || '[]');
 let calciCounter = calciQuotes[calciQuotes.length - 1].count;
+let achievments = JSON.parse(localStorage['achievments'] || '[]');
 console.log(calciQuotes);
 console.log(calciCounter)
 document.getElementById('calci').style.marginLeft = "85%";
@@ -17,7 +18,7 @@ function homePage() {
     document.getElementById('homePage').style.display = 'grid';
     document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games" id = "CountGame"><a href="../Unterseiten/CountGame/CountGame.html"> <h2> CountGame </h2>  </a></div>'
     document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games" id = "GeometryGame"><a href="../Unterseiten/GeometryGame/GeometryGame.html"> <h2> GeometryGame </h2>  </a></div>'
-    document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games" id = "PrimeHunt"><a href="../Unterseiten/PrimeHunt/PrimeHunt.html"> <h2> PrimeHunt </h2>  </a></div>'
+    document.getElementById('GamesNav-grid').innerHTML += '<div class = "Games" id = "EndRun"><a href="../Unterseiten/EndRun/EndRun.html"> <h2> End Run </h2>  </a></div>'
     document.getElementById('leiste').innerHTML = '<div id = "info"> </div> <div id = "Info/Achievments"> </div>'
     
     leiste();
@@ -41,6 +42,13 @@ function ControlCalci() {
 
     if(calciCounter > 11) {
         document.getElementById('calci').innerHTML = `<img src="../img/tutorSits.png" alt="">`;
+    }
+
+    if(calciCounter == 13 && achievments[12].attchieved == false) {
+        achievments[12].attchieved = true;
+        achievments[achievments.length - 1].count += 1;
+        localStorage['achievments'] = JSON.stringify(achievments);
+         achievment();
     }
 
     if(calciCounter == calciQuotes.length - 2) {
@@ -100,3 +108,13 @@ function returnHome() {
     document.getElementById('calciChats').style.display = "flex";
 }
 
+
+function achievment() {
+
+    localStorage['achievment'] = JSON.stringify(achievments);
+
+    document.getElementById('achievments').style.display = "block";
+    setTimeout(() => {
+        document.getElementById('achievments').style.display = "none";
+    }, 3000)
+}

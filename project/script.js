@@ -35,27 +35,11 @@ let tips = [
     { name: "Ha! What a coincidence", attchieved: false, tip: "Get the same Question Again" },
     { name: "Wrong Drop", attchieved: false, tip: "get the Question wrong" },
     { name: "Drag Calci", attchieved: false, tip: "Drag Calci in the Box" },
-    { name: "Geomatry Master", attchieved: false, tip: "Get all 10 right" }, // Geomatry Game
+    { name: "Geomatry Master", attchieved: false, tip: "Get 10 right" }, // Geomatry Game
     { name: "Geomatry Sweat", attchieved: false, tip: "Play Geomaatry Game 5 times" },
     { name: "Intercact with calci", attchieved: false, tip: "Talk with cacli for the first Time" },
     { name: "Placeholder", attchieved: false, tip: "Placeholder13" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder14" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder15" }, // Prime Hunt
-    { name: "Placeholder", attchieved: false, tip: "Placeholder16" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder17" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder18" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder19" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder20" }, // Homepage
-    { name: "Placeholder", attchieved: false, tip: "Placeholder21" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder22" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder23" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder24" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder25" }, // Extra
-    { name: "Placeholder", attchieved: false, tip: "Placeholder26" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder27" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder28" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder29" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder30" },
+    
     {count: 0}
   ];
 
