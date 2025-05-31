@@ -304,6 +304,15 @@ answered = true
 
 console.log(document.querySelector("#checkBox img").id);
 
+
+if(document.querySelector("#checkBox img").id == "cacli" && achievments[10].attchieved == false) {
+  achievments[10].attchieved = true;
+  achievments[achievments.length - 1].count += 1;
+  localStorage['achievments'] = JSON.stringify(achievments);
+  achievment();
+  
+}
+
 if(formeln[qestArray][questid].id == document.querySelector("#checkBox img").id) {
   console.log("richtig")
   achievmentCounter++;

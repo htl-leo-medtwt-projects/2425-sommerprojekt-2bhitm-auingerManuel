@@ -322,7 +322,7 @@ body {
 
 .player-grid h1 {
     text-align: center;
-    font-size: 5vw;
+    font-size: 4vw;
 }
 
 .player-grid p {
@@ -520,5 +520,131 @@ body {
         transform: scale(1);
         transform: rotate(0deg);
         
+    }
+}
+
+
+
+@media (max-width: 600px) {
+    body {
+        background-size: cover;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    #headline {
+        width: 90vw;
+        font-size: 6vw;
+    }
+
+    #headline h1 {
+        font-size: 12vw;
+        letter-spacing: 2vw;
+    }
+
+    #box {
+        width: 90vw;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.1rem;
+        padding: 4vw 2vw;
+    }
+
+   
+
+    #submit,
+    #return-victory {
+        width: 60vw;
+        font-size: 1.2rem;
+        padding: 4vw 0;
+    }
+
+    #calciChats {
+        width: 95vw;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1rem;
+        flex-direction: column;
+        gap: 2vw;
+        padding: 2vw;
+    }
+
+    #homePage {
+        width: 98vw;
+        gap: 2vw;
+    }
+
+    #GamesNav-grid,
+    .player-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    #victoryBox {
+        width: 95vw;
+        font-size: 1.1rem;
+        padding: 2vw;
+    }
+
+    #victoryBox h1,
+    .player-grid h1 {
+        font-size: 8vw;
+    }
+
+    .player-grid p {
+        font-size: 6vw;
+    }
+
+    #CountGame,
+    #GeometryGame,
+    #EndRun {
+        width: 60vw;
+        aspect-ratio: 1/1;
+        margin: 2vw auto;
+    }
+
+    #leiste {
+        font-size: 1rem;
+        gap: 2vw;
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    #achievments {
+        width: 90vw;
+        font-size: 1rem;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+
+
+    #calci {
+        width: 100%;
+        position: fixed;
+        bottom: 20%;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    #playerSubmit {
+        width: 100%;
+       
+        padding: 1rem;
+        font-size: 1.2rem;
+    }
+
+    #createPlayer {
+        width: 100%;
+        padding: 2vw;
+        grid-template-columns: 1fr;
+    }
+
+    .playerInput {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0.75rem;
+        font-size: 1rem;
+        margin-bottom: 1rem;
     }
 }

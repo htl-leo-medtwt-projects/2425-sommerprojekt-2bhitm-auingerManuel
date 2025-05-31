@@ -13,6 +13,18 @@ body {
     src: url(../../Font/Tanker-Regular.otf);
 }
 
+#calci {
+    position: fixed;
+    bottom: 0;
+    left: 75%;
+    width: 20%;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
 
 #achievments {
     text-align: center;

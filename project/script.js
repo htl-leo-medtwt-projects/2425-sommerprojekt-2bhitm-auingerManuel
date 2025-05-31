@@ -150,7 +150,7 @@ function getCharacter() {
    
 
     document.getElementById('createPlayer').innerHTML = `
-        <input id = "pl${playerCount}" type="text" placeholder=" Player ${playerCount + 1}">
+        <input class = "playerInput" id = "pl${playerCount}" type="text" placeholder=" Player ${playerCount + 1}">
         <div id = "playerSubmit" onclick = "getname(${playerCount})"> <p> Submit </p> </div>
         `
 }
@@ -194,14 +194,7 @@ function homePage() {
     leiste();
     update();
 }
-/*
-function leiste() {
-    let brick = "";
-    brick += ` <p class = "infoText"> Manuel </p> <p class = "infoText">  Auinger </p> <p class = "infoText"> 2bhitm </p> <a href="https://www.instagram.com/manuel_au08/"><img src="../img/instagram-logo-instagram-icon-transparent-free-png 1.png" alt=""></a> <a href="./tipsAchievments.html"><img src="../img/final-lightbulb-100 1.png" alt=""></a>`
-    document.getElementById('leiste').innerHTML = brick;
-}
 
-*/
 function update() {
     for(let i = 0; i < 2; i++) {
         document.getElementById(`player${i + 1}`).innerHTML = `<h1> ${players[i].name} </h1> <p> Points: ${players[i].points} </p> <div class = "victory"> <p> Victories: ${victorys[i].length} </p> <div class = "win" id = "wins${i + 1}"> </div>`
