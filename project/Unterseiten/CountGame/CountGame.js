@@ -158,14 +158,15 @@ function getAnswer(nr1, operator, nr2) {
 
 let timer = false;
 function Main() {
-
-   
-    document.getElementById('countgame').style.display = "grid";
+    // Vorbereitung
+   document.getElementById('countgame').style.display = "grid";
    
     let timerValue = 10;
-   
+    
     document.getElementById('timer').innerHTML = `<div> <p>Time:${timerValue} </p>`;
-   
+    
+
+    // Timer
     const intervalTimer = setInterval(() => {
         console.log("Counter " + timerValue)
 
@@ -190,15 +191,16 @@ function Main() {
         document.getElementById('timer').innerHTML = `<p> Time: ${timerValue} </p>`;
        }, 1000)
 
-   
+    
+    // Rechnung generieren
     let nr1 = getrndNr(ob);
     let operator = rndOperator();
     let nr2 = getrndNr(ob);
     let answer = getAnswer(nr1, operator, nr2)
+
+    // Ausgabe + Antwort 
     print(nr1, operator, nr2);
-    
     antworten(answer, intervalTimer);
-    
 }
 
 function antworten(answer, intervalTimer) {
@@ -297,24 +299,17 @@ function checkAnwser(answer, userAnswer, intervalTimer, used, right) {
             achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
-        }
-
-        if(countPoints[currentPlayer].currentPoints == 20 && achievments[1].attchieved == false) {
+        } else if(countPoints[currentPlayer].currentPoints == 20 && achievments[1].attchieved == false) {
             achievments[1].attchieved = true;
             achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
-        }
-
-        if(countPoints[currentPlayer].currentPoints == 30 && achievments[2].attchieved == false) {
+        } else if(countPoints[currentPlayer].currentPoints == 30 && achievments[2].attchieved == false) {
             achievments[2].achievments = true;
             achievments[achievments.length - 1].count += 1;
             localStorage['achievments'] = JSON.stringify(achievments);
             achievment();
-        }
-
-
-        if(countPoints[currentPlayer].currentPoints == 50 && achievments[3].attchieved == false) {
+        }else if(countPoints[currentPlayer].currentPoints == 50 && achievments[3].attchieved == false) {
             achievments[3].attchieved = true;
             achievments[achievments.length - 1].count =+ 1;
             localStorage['achievments'] = JSON.stringify(achievments);

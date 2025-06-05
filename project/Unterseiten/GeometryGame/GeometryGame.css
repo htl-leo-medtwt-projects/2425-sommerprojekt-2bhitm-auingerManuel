@@ -62,7 +62,7 @@ img {
     100% {
         transform: scale(1);
         transform: rotate(0deg);
-        
+
     }
 }
 
@@ -71,13 +71,13 @@ img {
     width: 100%;
     display: block;
     text-align: center;
-    
+
     color: var(--fontColor);
-    
+
 }
 
 #end {
-    
+
     font-size: larger;
     background-color: white;
     border: solid black 2px;
@@ -99,18 +99,18 @@ img {
     bottom: 0;
     left: 0;
     background-color: #7aaaab;
-     margin-left: auto;
-     margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
     text-align: center;
-    
+
     color: var(--fontColor);
     transition: all 0.3s ease;
 }
 
 #return:hover {
-   
-   
+
+
     border: solid black 2px;
     border-radius: 10px;
     padding: 1%;
@@ -131,10 +131,10 @@ img {
 #Game {
     display: grid;
     grid-template-columns: 50% 20% auto;
-    
+
     width: 60%;
     height: fit-content;
-    
+
     margin-left: auto;
     margin-right: auto;
     background-color: #7aaaab;
@@ -154,7 +154,7 @@ img {
     margin-right: auto;
     font-size: x-large;
     text-align: center;
-    background: linear-gradient(to right,#7aaaab,#f0f0f0);
+    background: linear-gradient(to right, #7aaaab, #f0f0f0);
     border-radius: 0 10px 0 0;
 }
 
@@ -166,7 +166,7 @@ img {
 }
 
 #checkBox {
-    
+
     border: black solid 2px;
     background-color: white;
     width: 20vw;
@@ -177,7 +177,7 @@ img {
 
 #checkBox h3 {
     margin-top: 45%;
-   text-align: center;
+    text-align: center;
 }
 
 
@@ -186,11 +186,11 @@ img {
 
 #options-grid {
     width: 100%;
-    background: linear-gradient(to right,#7aaaab,#f0f0f0);
+    background: linear-gradient(to right, #7aaaab, #f0f0f0);
 }
 
 .options-elemts {
-    
+
     width: 100%;
     height: auto;
 }
@@ -200,25 +200,45 @@ img {
 
 
 #submit {
-     background-color: #f0f0f0;
-      padding: 20px;
-      
-     
-      
-      border-radius: 0 10px 10px 0;
-      text-align: center;
-     
+    background-color: #f0f0f0;
+    padding: 20px;
+
+
+
+    border-radius: 0 10px 10px 0;
+    text-align: center;
+
 }
 
 #submit h1 {
-    
+
     padding-top: 2%;
     padding-bottom: 2%;
     background-color: #7aaaab;
-     margin-top: 80%;
-      color: #333;
-        transition: all linear 2s;
-      font-family: tuffy;
+    margin-top: 80%;
+    color: #333;
+    transition: all linear 2s;
+    font-family: tuffy;
 }
 
+#currentplayer {
+    background-color: #7aaaab;
+    width: fit-content;
+    height: fit-content;
+    padding: .5em .3em;
+    border-radius: .3em;
+    margin: 0 auto;
+}
 
+#currentplayer>div {
+    margin: .6em 0;
+}
+
+#currentplayer p {
+    
+    font-size: 1.4em;
+    color: var(--title);
+    text-align: left;
+    margin: 0;
+    font-weight: 800;
+}

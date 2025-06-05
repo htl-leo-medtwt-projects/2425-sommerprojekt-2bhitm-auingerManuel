@@ -36,10 +36,9 @@ let tips = [
     { name: "Wrong Drop", attchieved: false, tip: "get the Question wrong" },
     { name: "Drag Calci", attchieved: false, tip: "Drag Calci in the Box" },
     { name: "Geomatry Master", attchieved: false, tip: "Get 10 right" }, // Geomatry Game
-    { name: "Geomatry Sweat", attchieved: false, tip: "Play Geomaatry Game 5 times" },
+    { name: "Geomatry Sweat", attchieved: false, tip: "Play Geomatry Game 5 times" },
     { name: "Intercact with calci", attchieved: false, tip: "Talk with cacli for the first Time" },
-    { name: "Placeholder", attchieved: false, tip: "Placeholder13" },
-    
+    {name: "100%", achievment: false, tip: "Get all Achievments"},
     {count: 0}
   ];
 
@@ -61,7 +60,7 @@ localStorage['achievments'] = JSON.stringify(tips);
 localStorage['calci'] = JSON.stringify(calciQuotes);
 
 
-document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
+document.getElementById('box').innerHTML = `<div> ${calciQuotes[calciCounter].sentence} </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/arrow.png" alt=""> </div>`
 let players = [
      {
         points: 0,
@@ -108,7 +107,7 @@ function ControlCalci() {
     calciCounter++;
     calciQuotes[calciQuotes.length-1].count = calciCounter;
     localStorage['calci'] = JSON.stringify(calciQuotes);
-    document.getElementById('box').innerHTML = `<div> <p> ${calciQuotes[calciCounter].sentence} </p> </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/icons8-close-50.png" alt=""> </div>`
+    document.getElementById('box').innerHTML = `<div> <p> ${calciQuotes[calciCounter].sentence} </p> </div> <div id = "button" onclick = "ControlCalci()">  <img src="./img/arrow.png" alt=""> </div>`
 
     if(calciCounter >= 2 && calciCounter <= 4 )  {
         document.getElementById('box').innerHTML = `<div> <p> ${calciQuotes[calciCounter].sentence} </p> </div>`
@@ -220,7 +219,6 @@ function update() {
 
 
 
-// Count Game
 
 
 

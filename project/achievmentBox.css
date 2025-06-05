@@ -1,0 +1,39 @@
+#achievments {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    position: fixed;
+    left: 80%;
+    bottom: 0;
+    width: 15%;
+    background-color: yellow;
+    display: none;
+    font-size: larger;
+    animation: achievment 2s ease-in-out;
+}
+
+
+@keyframes achievment {
+    0% {
+        transform: scale(1);
+
+    }
+
+    20% {
+        transform: scale(1.2);
+        transform: rotate(-10deg);
+    }
+
+
+
+    70% {
+        transform: scale(1.5);
+        transform: rotate(20deg);
+    }
+
+    100% {
+        transform: scale(1);
+        transform: rotate(0deg);
+        
+    }
+}

@@ -9,45 +9,7 @@ body {
     src: url(../../Font/Tuffy-Regular.ttf);
 }
 
-#achievments {
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    position: fixed;
-    left: 80%;
-    bottom: 0;
-    width: 15%;
-    background-color: yellow;
-    display: none;
-    font-size: larger;
-    animation: achievment 2s ease-in-out;
-}
 
-
-@keyframes achievment {
-    0% {
-        transform: scale(1);
-
-    }
-
-    20% {
-        transform: scale(1.2);
-        transform: rotate(-10deg);
-    }
-
-
-
-    70% {
-        transform: scale(1.5);
-        transform: rotate(20deg);
-    }
-
-    100% {
-        transform: scale(1);
-        transform: rotate(0deg);
-        
-    }
-}
 
 #startGame {
     border-radius: 6%;
@@ -55,7 +17,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 20%;
-    height: 15vh;
+    height: fit-content;
     background-color: var(--backgroundColorBox);
 }
 
@@ -65,7 +27,7 @@ body {
     
     text-align: center;
     font-size: xx-large;
-    color: var(--fontColor);
+    color: var(--title);
     font-family: tuffy;
 }
 
@@ -277,3 +239,87 @@ text-decoration: none;
 }
 
 
+/* Responsive Styles for CountGame */
+@media (max-width: 600px) {
+    #startGame {
+        width: 90vw;
+        min-width: unset;
+        padding: 4vw 2vw;
+    }
+
+    #startGame h1 {
+        font-size: 2em;
+    }
+
+    #countGame-overlay {
+        width: 95vw;
+        height: auto;
+        min-height: 40vh;
+    }
+
+    #countgame {
+        width: 95vw;
+        padding: 5vw 2vw;
+        font-size: 1em;
+    }
+
+    #countgame-Main {
+        width: 100%;
+        gap: 3vw;
+    }
+
+    #rechnung, #timer {
+        font-size: 1.3em;
+    }
+
+    #calciwins {
+        width: 60vw;
+    }
+
+    #anwnsers {
+        width: 95vw;
+        gap: 3vw;
+    }
+
+    .options {
+        font-size: 1em;
+        padding: 2vw 0;
+    }
+
+    #currentPLayer {
+        font-size: 1em;
+        width: 100%;
+    }
+
+    #end {
+        width: 95vw;
+        font-size: 1em;
+        padding: 4vw 2vw;
+    }
+
+    #return {
+        width: 60vw;
+        font-size: 1em;
+        padding: 2vw 0;
+        left: 50%;
+        transform: translateX(-50%);
+        position: fixed;
+        top: 0;
+    }
+
+    #return a {
+        width: 100%;
+        font-size: 1em;
+    }
+
+    #chat {
+        width: 95vw;
+        margin: 2vw auto;
+        margin-top: 10vw;
+        margin-left: auto;
+        flex-direction: column;
+        gap: 2vw;
+        font-size: 1em;
+        padding: 2vw;
+    }
+}

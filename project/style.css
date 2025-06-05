@@ -1,19 +1,25 @@
-
-
-
 :root {
-    --fontColor: #7aaaab;
-    --backgroundColorBox: white;
-    --backgroundColor: #051BA9;
-    --right: #346224;
-    --false: #A62929;
-    --border: black;
-    --overlay: rgba(0, 0, 0, 0.495);
+    --fontColor: #0f1c2e; /* sehr dunkles Blau für Text */
+    --backgroundColorBox: #d6e8ff; /* weiches Hellblau für Boxen */
+    --backgroundColor: #4784c2; /* dezentes Himmelblau für die Seite */
+    --right: #0f3e0a; /* Google-Blau – auffällig und klar */
+    --false: #d62828; /* leicht dunkleres Rot für Kontrast */
+    --border: 1px solid #000000; /* blaugrauer Rahmen */
+    --overlay: rgba(15, 28, 46, 0.5); /* halbtransparenter Overlay in sehr dunklem Blau */
+    --title: #145da0; /* kräftiger Mittelton für Titel */
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
+
 body {
-    background-image: url(./img/background.jpg);
+    background-image: url(./img/background.avif);
     background-size: cover;
+   
+    background-repeat: no-repeat;
     overflow-y: hidden;
     overflow-x: hidden; 
     
@@ -34,7 +40,6 @@ body {
 
 #headline {
     
-   
     margin-left: auto;
     margin-right: auto;
     display: flex;
@@ -67,10 +72,9 @@ body {
 #headline h1 {
     
    
-    color: var(--fontColor);
+    color: var(--title);
     text-align: center;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--fontColor);
+    
     font-family: tanker;
     font-size: 8vw;
     font-style: normal;
@@ -80,10 +84,11 @@ body {
 }
 
 #box {
+    margin-top: 8%;
     display: grid;
     grid-template-columns: auto;
     width: 20%;
-    margin-left: 20%;
+    margin-left: 15%;
     margin-right: auto;
     text-align: center;
     padding-top: 2%;
@@ -107,7 +112,7 @@ body {
 }
 
 #button img {
-    width: 70%;
+    width: 10%;
 }
 
 #createPlayer {
@@ -182,7 +187,7 @@ body {
         background-color: var(--backgroundColorBox);
     }
 }
-
+/*
 #overlay {
     z-index: -1;
     top: 0;
@@ -191,7 +196,7 @@ body {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.495);
 }
-
+*/
 
 #createPlayer {
     display: none;
@@ -236,25 +241,38 @@ body {
 
 /* HomePage */
 #calciChats {
+    margin-top: 5%;
+
     width: 30%;
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto 10%;
     gap: 5%;
-    margin: 1rem auto;
+    /*margin: 1rem auto; */
     margin-left: 50%;
     padding: 1rem 1.5rem;
-    background-color: var(--backgroundColorBox);
+    background-color: var(--backgroundColor);
     border-left: 6px solid var(--border);
     border-radius: 12px;
     font-family: 'Segoe UI', sans-serif;
-    font-size: 1rem;
-    color: #333;
+    font-size: 1.5rem;
+    color: var(--backgroundColorBox);
     font-family: tuffy;
-    margin-top: 5%;
+    
+}
+
+#calciChats img {
+    width: 100%;
+    height: auto;
+}
+
+#continueChat img {
+    margin-top: 25%;
+    width: 100%;
+    height: auto;
 }
 #homePage {
     margin-top: 2%;
-    width: 60%;
+    width: 50%;
     display: none;
     grid-template-columns: auto;
     gap: 5%;
@@ -266,7 +284,7 @@ body {
 #GamesNav-grid {
     display: grid;
     grid-template-columns: auto auto auto;
-    background-color: rgba(51, 49, 49, 0.916);
+    background-color: rgba(51, 49, 49, 0.4);
 }
 
 .player-grid {
@@ -323,12 +341,14 @@ body {
 .player-grid h1 {
     text-align: center;
     font-size: 4vw;
+    color: var(--title);
 }
 
 .player-grid p {
     
     text-align: center;
     font-size: 3vw;
+    color: var(--fontColor);
 }
 
 #CountGame {
@@ -469,7 +489,7 @@ body {
 
 #calci {
     position: fixed;
-    bottom: 0;
+    bottom:  0;
     background-color: white;
     width: 20%; 
     
@@ -485,6 +505,7 @@ body {
 
 
 #achievments {
+    grid-template-columns: auto 60%;
     text-align: center;
     padding-top: 2%;
     padding-bottom: 2%;
@@ -492,11 +513,20 @@ body {
     right: 0;
     top: 10;
     width: 15%;
-    background-color: yellow;
+    color: var(--fontColor);
     display: none;
-    font-size: larger;
+    align-items: center;
     animation: achievment 2s ease-in-out;
+
 }
+
+#achievments p {
+    background-color: rgba(184, 184, 184, 0.212);
+    border-radius: 10px;
+}
+
+
+
 
 @keyframes achievment {
     0% {
@@ -527,7 +557,11 @@ body {
 
 @media (max-width: 600px) {
     body {
+       min-height: 100vh;
+        min-width: 100vw;
         background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         overflow-x: hidden;
         overflow-y: auto;
     }
@@ -543,6 +577,8 @@ body {
     }
 
     #box {
+        display: grid;
+        grid-template-columns: auto auto;
         width: 90vw;
         margin-left: auto;
         margin-right: auto;
@@ -567,10 +603,12 @@ body {
         flex-direction: column;
         gap: 2vw;
         padding: 2vw;
+        display: none;
     }
 
     #homePage {
-        width: 98vw;
+        height: fit-content;
+        width: 80vw;
         gap: 2vw;
     }
 
@@ -604,9 +642,15 @@ body {
     }
 
     #leiste {
-        font-size: 1rem;
+        height: fit-content;
+        font-size: 0.5rem;
         gap: 2vw;
         grid-template-columns: repeat(5, 1fr);
+    }
+
+    #leiste img {
+        width: 50%;
+        height: auto;
     }
 
     #achievments {
@@ -624,6 +668,7 @@ body {
         bottom: 20%;
         background-color: transparent;
         padding: 0;
+        display: none;
     }
 
     #playerSubmit {

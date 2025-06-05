@@ -1,0 +1,128 @@
+:root {
+    --fontColor: #0f1c2e; /* sehr dunkles Blau für Text */
+    --backgroundColorBox: #d6e8ff; /* weiches Hellblau für Boxen */
+    --title: #4784c2; /* dezentes Himmelblau für die Seite */
+    --right: #0f3e0a; /* Google-Blau – auffällig und klar */
+    --false: #d62828; /* leicht dunkleres Rot für Kontrast */
+    --border: 1px solid #000000; /* blaugrauer Rahmen */
+    --overlay: rgba(15, 28, 46, 0.5); /* halbtransparenter Overlay in sehr dunklem Blau */
+    --backgroundColor: #145da0; /* kräftiger Mittelton für Titel */
+}
+
+h1,h2,h3 {
+    text-align: center;
+}
+
+
+#output {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+}
+
+.endBox {
+    width: 100%;
+    height: auto;
+    background-color: var(--backgroundColorBox);
+    text-align: center;
+    height: fit-content;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.endBox h1 {
+    font-size: 5em;
+    color: var(--title);
+}
+
+
+.moreInfos {
+    width: 100%;
+    height: auto;
+    
+    text-align: center;
+    height: fit-content;
+    
+    margin-bottom: 5%;
+}
+
+
+#wins {
+    display: none;
+    font-size: 2em;
+    background-color: var(--backgroundColorBox);
+    color: var(--fontColor);
+}
+
+
+#headline {
+    font-size: 3em;
+    color: var(--title);
+    text-align: center;
+}
+
+#EndRun {
+    width: 100%;
+    height: auto;
+    
+    height: fit-content;
+}
+
+#return-to-begin {
+    background-color: var(--backgroundColor);
+    color: var(--fontColor);
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+    bottom: 0;
+}
+
+
+
+/* ...existing code... */
+
+@media (max-width: 600px) {
+    #EndRun {
+        
+        box-sizing: border-box;
+    }
+
+    #headline {
+        font-size: 2em;
+        padding: 2vw 0;
+    }
+
+    .endBox {
+        margin: auto;
+        width: 80%;
+        padding: 4vw 2vw;
+        font-size: 1.1em;
+    }
+
+    .endBox h1 {
+        font-size: 2.5em;
+    }
+
+    .moreInfos {
+        width: 100%;
+        padding: 3vw 2vw;
+        font-size: 1em;
+        margin-bottom: 8vw;
+    }
+
+    #output {
+        width: 98vw;
+        gap: 10px;
+    }
+
+    #wins {
+        font-size: 1.2em;
+        padding: 2vw 0;
+    }
+}
+
+
+

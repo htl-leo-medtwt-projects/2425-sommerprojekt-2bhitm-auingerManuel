@@ -11,10 +11,7 @@ console.log(tips);
   function closeTip() {
     document.getElementById('chat').innerHTML = "";
     document.getElementById('chat').style.display = "none";
-
   }
-
-
 Tips();
 
 
@@ -25,7 +22,7 @@ function Count() {
   function Tips() {
     Count();
     let brick = "";
-    for(let i = 0; i < tips.length - 1; i++ ) {
+    for(let i = 0; i < tips.length; i++ ) {
 
         if(tips[i].attchieved) {
             brick += `<div class = "tips-elements right"> <h3> Achievment: ${i + 1} </h3> <h3> NAME:${tips[i].name} </h3> <div class = "state"><img src="../../img/icons8-unlock-50.png" alt=""> </div> <div class = "tip" onclick = "getTips(${i})"> <h3> get Tipps </h3> </div> </div>`
@@ -40,12 +37,9 @@ function Count() {
     for(let i = 0; i < sections.length;i++) {
         generateScrollAnimation(i);
     }
-    
-
   }
 
-
-function generateScrollAnimation(i) {
+  function generateScrollAnimation(i) {
     let element = sections[i];
 
     /* SET START KEY FRAME */

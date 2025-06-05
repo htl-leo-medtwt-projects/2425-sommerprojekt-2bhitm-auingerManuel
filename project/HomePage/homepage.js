@@ -9,6 +9,7 @@ console.log(calciCounter)
 document.getElementById('calci').style.marginLeft = "85%";
 document.getElementById('calci').style.marginBottom = "4%"
 document.getElementById('calci').style.width = "10%"
+document.body.style.backgroundColor = "#F0F0F0";
 homePage();
 function homePage() {
     document.getElementById('leiste').style.display = 'grid';
@@ -54,7 +55,7 @@ function ControlCalci() {
     if(calciCounter == calciQuotes.length - 2) {
         calciCounter = 5;
     }
-    document.getElementById('calciChats').innerHTML = `<p> ${calciQuotes[calciCounter].sentence} </p> <div id = "continueChat" onclick = "ControlCalci()" > <img src="../img/icons8-close-50.png" alt=""> </div>`
+    document.getElementById('calciChats').innerHTML = `<p> ${calciQuotes[calciCounter].sentence} </p> <div id = "continueChat" onclick = "ControlCalci()" > <img src="../img/arrow.png" alt=""> </div>`
 }
 
 
@@ -78,29 +79,14 @@ function victories(player) {
 
 
 function update() {
-    for(let i = 0; i < 2; i++) {
+    	for(let i = 0; i < 2; i++) {
         document.getElementById(`player${i + 1}`).innerHTML = `<h1> ${players[i].name} </h1> <p> Points: ${players[i].points} </p> <div class = "victory-Onlick" onclick = "victories(${i})" class = "victory"> <p> Victories: ${victorys[i].length} </p></div>`
     }
 
-   
-
-    let brick = "";
-
-    for(let i = 0; i < victorys.length; i++) {
-        brick = "<ol>";
-
-        if(victorys[i].length != 0) {
-        for(let j = 0; j < victorys[i].length; j++) {
-            brick += `<li> ${victorys[i][j].name} </li>`;
-        }
-        brick += "</ol>"
-    } else {
-        brick = 'No Victories';
-    }
-    brick += '</div>'
-   
-    }
+    
 }
+
+
 
 function returnHome() {
     document.getElementById('homePage').style.display = "grid";
@@ -111,9 +97,18 @@ function returnHome() {
 
 function achievment() {
 
+
+
+
     localStorage['achievment'] = JSON.stringify(achievments);
 
-    document.getElementById('achievments').style.display = "block";
+
+    if(achievments[achievments.length - 1].count == achievment.length - 2) {
+        document.getElementById('achievments').innerHTML = `<h1> All Achievments unlocked </h1>`;
+        achievments[achievments.length - 2].attchieved = true;
+    }
+
+    document.getElementById('achievments').style.display = "grid";
     setTimeout(() => {
         document.getElementById('achievments').style.display = "none";
     }, 3000)
